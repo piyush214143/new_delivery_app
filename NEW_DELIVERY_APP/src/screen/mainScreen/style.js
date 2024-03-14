@@ -1,18 +1,18 @@
 import {StyleSheet} from 'react-native';
 import ResponsiveSize from '../../utils/responsiveSize';
+import { FONTS } from '../../utils/constants';
 
 const mainStyle = StyleSheet.create({
   container:{
    flex:1,
-   backgroundColor:'red'
+   backgroundColor: '#A259FF',
   },
   backDrop: {
-    backgroundColor: '#A259FF',
-    paddingVertical: ResponsiveSize(450),
-    position: 'relative',
+    // paddingVertical: ResponsiveSize(450),
+    // position: 'relative',
   },
   logoContainer: {
-    position: 'absolute',
+    // position: 'absolute', 
     width: ResponsiveSize(63),
     height: ResponsiveSize(63),
     backgroundColor: '#CDFFB6',
@@ -27,28 +27,25 @@ const mainStyle = StyleSheet.create({
   base: {
     backgroundColor: '#F6F5F5',
     position: 'absolute',
-    paddingHorizontal: ResponsiveSize(197),
-    paddingVertical: '60%',
-    right: 0,
-    left: 0,
-    bottom: 0,
-    top: ResponsiveSize(312),
     borderTopStartRadius: ResponsiveSize(40),
     borderTopEndRadius: ResponsiveSize(40),
-    flexDirection:'column'
+    height: '65%',
+    width:"100%",
+    bottom: 0,
+    
   },
   icon: {
     width: ResponsiveSize(104),
     height: ResponsiveSize(104),
     borderRadius: ResponsiveSize(104 / 2),
     backgroundColor: '#FFFFFF',
-    left: ResponsiveSize(-55),
-    top: ResponsiveSize(-180),
+    alignSelf:'center',
+    marginTop:'12%'
   },
   box: {
     width: ResponsiveSize(40),
     height: ResponsiveSize(40),
-    left: ResponsiveSize(30),
+    alignSelf:'center',
     top: ResponsiveSize(30),
   },
   heading: {
@@ -57,9 +54,9 @@ const mainStyle = StyleSheet.create({
     color: '#2D0C57',
     position:'absolute',
     alignSelf:'center',
-    top:ResponsiveSize(180),
+    top:'31%',
     textAlign:'center',
-    lineHeight:ResponsiveSize(41)
+    lineHeight:ResponsiveSize(41),
   },
   description:{
     fontWeight: '400',
@@ -74,7 +71,7 @@ const mainStyle = StyleSheet.create({
   },
   btn1Container:{
     backgroundColor:'#0BCE83',
-    top:ResponsiveSize(50),
+    top:'45%',
     paddingHorizontal:ResponsiveSize(170),
     height:ResponsiveSize(56),
     alignSelf:'center',

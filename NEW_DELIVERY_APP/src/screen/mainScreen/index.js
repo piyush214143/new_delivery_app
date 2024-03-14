@@ -6,10 +6,8 @@ import {IMAGES} from '../../utils/constants';
 const MainScreen = () => {
   return (
     <View style={mainStyle.container}>
-      <View style={mainStyle.backDrop}>
-        <View style={mainStyle.logoContainer}>
-          <Image source={IMAGES.logo} style={mainStyle.logo}></Image>
-        </View>
+      <View style={mainStyle.logoContainer}>
+        <Image source={IMAGES.logo} style={mainStyle.logo}/>
       </View>
       <View style={mainStyle.base}>
         <View style={mainStyle.icon}>
