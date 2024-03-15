@@ -4,7 +4,7 @@ import categoryStyle from "./style";
 
 const Categories = () => {
 return(
-    <View>
+    <View style={categoryStyle.container}>
 
     </View>
 )
