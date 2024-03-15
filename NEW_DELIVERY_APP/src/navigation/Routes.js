@@ -24,17 +24,13 @@ export const TabNav = () => (
       tabBarIcon: ({ focused, color, size }) => {
         let iconName;
         if (route.name === 'Categories') {
-          iconName = IMAGES.tab;
+          iconName = focused ? IMAGES.tabCol: IMAGES.tab;
         } if (route.name === 'Checkout') {
-          iconName = IMAGES.shoppingCart;
+          iconName = focused ? IMAGES.shoppingCartCol: IMAGES.sh;
         } else if (route.name === 'Profile') {
             iconName = IMAGES.user;
-          }
-        return (
-          <View style={{ backgroundColor: focused ? 'blue' : 'transparent', borderRadius: 20, padding: 10 }}>
-            <Image source={iconName} style={{ width: size, height: size }} />
-          </View>
-        );
+        }
+       
       },
     })}
     tabBarOptions={{
