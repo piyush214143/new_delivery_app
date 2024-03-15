@@ -1,19 +1,19 @@
 import {StyleSheet,Dimensions} from 'react-native';
 import ResponsiveSize from '../../utils/responsiveSize';
-import { FONTS } from '../../utils/constants';
+import { COLORS, FONTS } from '../../utils/constants';
 
 const windowHeight = Dimensions.get('window').height;
 
 const mainStyle = StyleSheet.create({
   container:{
    flex:1,
-   backgroundColor: '#A259FF',
+   backgroundColor: COLORS.background,
    height:windowHeight
   },
   logoContainer: {
     width: ResponsiveSize(63),
     height: ResponsiveSize(63),
-    backgroundColor: '#CDFFB6',
+    backgroundColor: COLORS.logoBG,
     top: ResponsiveSize(63),
     left: ResponsiveSize(20),
     borderRadius: ResponsiveSize(63 / 2),
@@ -24,7 +24,7 @@ const mainStyle = StyleSheet.create({
     left: ResponsiveSize(20),
   },
   base: {
-    backgroundColor: '#F6F5F5',
+    backgroundColor: COLORS.grey,
     position: 'absolute',
     borderTopStartRadius: ResponsiveSize(40),
     borderTopEndRadius: ResponsiveSize(40),
@@ -39,7 +39,7 @@ const mainStyle = StyleSheet.create({
     width: ResponsiveSize(104),
     height: ResponsiveSize(104),
     borderRadius: ResponsiveSize(104 / 2),
-    backgroundColor: '#FFFFFF',
+    backgroundColor: COLORS.white,
   },
   box: {
     width: ResponsiveSize(40),
@@ -50,28 +50,31 @@ const mainStyle = StyleSheet.create({
   heading: {
     fontWeight: '700',
     fontSize: ResponsiveSize(34),
-    color: '#2D0C57',
+    color: COLORS.heading,
     textAlign:'center',
     lineHeight:ResponsiveSize(41),
+    fontFamily: FONTS.sfRegular
   },
   description:{
     fontWeight: '400',
     fontSize: ResponsiveSize(17),
-    color: '#9586A8',
+    color: COLORS.para,
     textAlign:'center',
     lineHeight:ResponsiveSize(25),
+    fontFamily: FONTS.sfRegular
   },
   btn1Container:{
-    backgroundColor:'#0BCE83',
+    backgroundColor:COLORS.button,
     paddingHorizontal:'30%',
     height:ResponsiveSize(56),
     borderRadius:ResponsiveSize(8),
     justifyContent:"center"
   },
   btn1:{
-    color:'#FFFFFF',
+    color:COLORS.white,
     fontSize:ResponsiveSize(15),
     fontWeight:'600',
+    fontFamily: FONTS.sfRegular
   },
   btn2Container:{
     paddingHorizontal:'30%',
@@ -80,9 +83,10 @@ const mainStyle = StyleSheet.create({
     justifyContent:"center"
   },
 btn2:{
-  color:'#9586A8',
+  color:COLORS.para,
   fontSize:ResponsiveSize(15),
   fontWeight:'600',
+  fontFamily: FONTS.sfRegular
 }
 });
 

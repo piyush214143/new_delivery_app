@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, View, Text, TouchableOpacity} from 'react-native';
 import mainStyle from './style';
-import {IMAGES} from '../../utils/constants';
+import {IMAGES} from '../../utils/constants';      
 
 const MainScreen = () => {
   return (
