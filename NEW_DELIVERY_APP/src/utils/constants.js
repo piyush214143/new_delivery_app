@@ -7,12 +7,20 @@ export const IMAGES = {
   shoppingCartCol:require('../../assets/images/shopping-cartCol.png'),
   user: require('../../assets/images/user.png'),
   tabCol: require('../../assets/images/tabCol.png'),
+  arrow:require('../../assets/images/Vector.png'),
+  search:require('../../assets/images/search.png'),
+  item1:require('../../assets/images/item1.png'),
+  item2:require('../../assets/images/item2.png'),
+  item3:require('../../assets/images/item3.png'),
+  item4:require('../../assets/images/item4.png'),
+  item5:require('../../assets/images/item5.png'),
+  item6:require('../../assets/images/item6.png'),
 };
 
 export const FONTS = {
   robotoRegular: 'Roboto-Regular',
+  robotoBold:'Roboto-Bold',
   sfRegular: 'SF-Pro-Text-Regular',
-  sfRegularItalic: 'SF-Pro-Text-RegularItalic',
 };
 
 export const COLORS = {
@@ -23,4 +31,5 @@ export const COLORS = {
   heading: '#2D0C57',
   para: '#9586A8',
   logoBG: '#CDFFB6',
+  border:'#D9D0E3'
 };
