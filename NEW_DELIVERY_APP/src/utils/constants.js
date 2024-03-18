@@ -7,6 +7,7 @@ export const IMAGES = {
   shoppingCartCol:require('../../assets/images/shopping-cartCol.png'),
   user: require('../../assets/images/user.png'),
   tabCol: require('../../assets/images/tabCol.png'),
+  arrow:require('../../assets/images/Vector.png')
 };
 
 export const FONTS = {

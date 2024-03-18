@@ -31,12 +31,10 @@ export const TabNav = () => (
         } else if (route.name === 'Profile') {
             iconName = IMAGES.user;
         }
-          return <Image source={iconName} style={{justifyContent: 'center',marginTop:ResponsiveSize(20), alignSelf:'center'}}/>
+          return <Image source={iconName} style={{justifyContent: 'center', alignSelf:'center'}}/>
       },
+      tabBarShowLabel:false
     })}
-    tabBarOptions={{
-      showLabel: false, 
-    }}
   >
     <Tab.Screen options={{ headerShown: false }} name="Categories" component={Categories} />
     <Tab.Screen options={{ headerShown: false }} name="Checkout" component={Checkout} />

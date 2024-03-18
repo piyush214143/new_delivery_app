@@ -3,7 +3,11 @@ import { COLORS } from "../../utils/constants";
 
 const categoryStyle = StyleSheet.create({
    container:{
-    backgroundColor:COLORS.grey
+    backgroundColor:COLORS.white,
+   },
+   arrow:{
+      width:20,
+      height:20,position:'absolute'
    }
 });
 
