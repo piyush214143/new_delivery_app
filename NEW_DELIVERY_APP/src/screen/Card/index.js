@@ -18,13 +18,13 @@ const Card = (props) => {
         { id: 3, name: 'Broccoli' , num: 33,},
         { id: 4, name: 'Spinach', num: 45,},
         { id: 5, name: 'Bell Pepper', num: 13, },
-      ];  
-    
+      ];     
 return(
     <View style={cardStyle.container}>
     <Header heading={'Vegetables'} back={()=>props.navigation.goBack('')}/>
     <View style={cardStyle.sectionContainer}>
     <VegetablesList vegetables={vegetables1} />
+    
     </View>
     </View>
 )

@@ -23,7 +23,8 @@ const cardStyle = StyleSheet.create({
         alignItems:'center'
       },
       sectionContainer: {
-        flexDirection:'column'
+        flexDirection:'column',
+        justifyContent:'space-evenly'
       },
       name: {
         fontSize: 16,

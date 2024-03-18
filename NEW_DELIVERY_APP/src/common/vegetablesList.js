@@ -13,16 +13,20 @@ const VegetablesList = ({vegetables}) => {
         onPress={() => setSelectedItem(isSelected ? null : item.id)}
         style={[
             cardStyle.itemContainer,
-            {backgroundColor: isSelected ? COLORS.list : COLORS.white},{ width: item.name.length * 10 + 25 }
+            {backgroundColor: isSelected ? COLORS.list : COLORS.white},{ width: item.name.length * 10 + 65 }
           ]}
        >
         {isSelected ? (
           <>
             <Image source={IMAGES.tick} style={cardStyle.image} />
             <Text style={[cardStyle.name, {color: COLORS.darkPurple}]}>{item.name}</Text>
+            <Text style={cardStyle.items}>({item.num})</Text>
           </>
         ) : (
+          <>
           <Text style={[cardStyle.name, {color: COLORS.para}]}>{item.name}</Text>
+          <Text style={[cardStyle.items, {color: COLORS.para}]}>({item.num})</Text>
+          </>
         )}
       </TouchableOpacity>
     );
@@ -36,8 +40,7 @@ const VegetablesList = ({vegetables}) => {
         keyExtractor={item => item.id}
         horizontal
         showsHorizontalScrollIndicator={false}
-      />
-      
+      />    
     </View>
   );
 };
