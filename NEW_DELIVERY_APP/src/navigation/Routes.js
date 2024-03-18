@@ -26,18 +26,19 @@ export const TabNav = () => (
         if (route.name === 'Categories') {
           iconName = focused ? IMAGES.tabCol: IMAGES.tab;
         } if (route.name === 'Checkout') {
-          iconName = focused ? IMAGES.shoppingCartCol: IMAGES.sh;
+          iconName = focused ? IMAGES.shoppingCartCol: IMAGES.shoppingCart;
         } else if (route.name === 'Profile') {
             iconName = IMAGES.user;
         }
+          return <Image source={iconName}  />
       },
     })}
     tabBarOptions={{
-        showLabel: false, 
-        style: {
-          borderTopWidth: 0, 
-        },
-      }}
+      showLabel: false, 
+      style: {
+        borderTopWidth: 0, 
+      },
+    }}
   >
     <Tab.Screen options={{ headerShown: false }} name="Categories" component={Categories} />
     <Tab.Screen options={{ headerShown: false }} name="Checkout" component={Checkout} />
