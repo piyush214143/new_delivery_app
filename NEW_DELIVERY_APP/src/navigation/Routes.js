@@ -8,6 +8,7 @@ import Categories from '../screen/Categories';
 import Checkout from '../screen/Checkout'; 
 import Profile from '../screen/Profile';
 import { IMAGES } from '../utils/constants';
+import ResponsiveSize from '../utils/responsiveSize';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,14 +31,11 @@ export const TabNav = () => (
         } else if (route.name === 'Profile') {
             iconName = IMAGES.user;
         }
-          return <Image source={iconName}  />
+          return <Image source={iconName} style={{justifyContent: 'center',marginTop:ResponsiveSize(20), alignSelf:'center'}}/>
       },
     })}
     tabBarOptions={{
       showLabel: false, 
-      style: {
-        borderTopWidth: 0, 
-      },
     }}
   >
     <Tab.Screen options={{ headerShown: false }} name="Categories" component={Categories} />
