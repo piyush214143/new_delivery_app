@@ -1,13 +1,16 @@
-import React from "react";
-import { View,Text } from "react-native";
+import React, { useState } from 'react';
+import { StatusBar, View } from 'react-native';
+import Routes from './src/navigation/Routes';
 
-const App =() =>{
-return (
-  <View>
-    <Text style={{justifyContent:'center',alignSelf:'center',color:'black',paddingTop:150}}>React native
-    </Text>
-  </View>
-)
-}
+const App = (props) => {
+  const [switchToTabs, setSwitchToTabs] = useState(true);
+
+  return (
+    <View style={{ flex: 1 }}>
+      <StatusBar backgroundColor={'black'} translucent />
+      <Routes switchToTabs={switchToTabs} /> 
+    </View>
+  );
+};
 
 export default App;
