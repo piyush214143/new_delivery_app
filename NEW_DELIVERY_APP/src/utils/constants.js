@@ -7,7 +7,8 @@ export const IMAGES = {
   shoppingCartCol:require('../../assets/images/shopping-cartCol.png'),
   user: require('../../assets/images/user.png'),
   tabCol: require('../../assets/images/tabCol.png'),
-  arrow:require('../../assets/images/Vector.png')
+  arrow:require('../../assets/images/Vector.png'),
+  search:require('../../assets/images/search.png')
 };
 
 export const FONTS = {
@@ -24,4 +25,5 @@ export const COLORS = {
   heading: '#2D0C57',
   para: '#9586A8',
   logoBG: '#CDFFB6',
+  border:'#D9D0E3'
 };
