@@ -30,7 +30,6 @@ export const TabNav = () => (
         } else if (route.name === 'Profile') {
             iconName = IMAGES.user;
         }
-       
       },
     })}
     tabBarOptions={{
