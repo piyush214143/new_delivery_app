@@ -10,11 +10,6 @@ const itemStyle = StyleSheet.create({
   container: {
     flex: 1,
   },
-  background: {
-    resizeMode: 'cover',
-    backgroundColor:'black',
-    width:'100%'
-  },
   bottom: {
     backgroundColor: COLORS.grey,
     position: 'absolute',
@@ -35,6 +30,7 @@ const itemStyle = StyleSheet.create({
     color: COLORS.heading,
     fontWeight: '700',
     fontSize: ResponsiveSize(32),
+    paddingBottom:'5%'
   },
   quantity:{
     color: COLORS.quantity,
@@ -49,6 +45,40 @@ const itemStyle = StyleSheet.create({
   description:{
     color: COLORS.para,
     fontSize: ResponsiveSize(14),
+    paddingBottom:'15%'
+  },
+  iconsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent:'center',
+    paddingBottom:'10%'
+  },
+  icon1Section: {
+    width: width * 0.2,
+    paddingVertical: ResponsiveSize(17),
+    borderRadius: ResponsiveSize(8),
+    flexDirection:'row',
+    borderWidth:1,
+    borderColor:COLORS.border,
+    justifyContent:'center'
+  },
+  icon2Section: {
+    width: (width * 0.6),
+    paddingVertical: ResponsiveSize(17),
+    borderRadius: ResponsiveSize(8),
+    flexDirection:'row',
+    justifyContent:'space-evenly',
+    borderWidth:1,
+    borderColor:COLORS.border
+  },
+  icon: {
+    width: ResponsiveSize(20),
+    height: ResponsiveSize(20),
+    alignSelf:'center'
+  },
+  add:{
+    fontSize:ResponsiveSize(15),
+    fontWeight:'600'
   }
 });
 
