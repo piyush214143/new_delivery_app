@@ -46,7 +46,8 @@ const itemStyle = StyleSheet.create({
   description:{
     color: COLORS.para,
     fontSize: ResponsiveSize(14),
-    paddingBottom:'15%'
+    paddingBottom:'15%',
+    lineHeight:ResponsiveSize(25.5)
   },
   iconsContainer: {
     flexDirection: 'row',
