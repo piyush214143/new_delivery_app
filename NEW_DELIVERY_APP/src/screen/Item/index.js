@@ -5,7 +5,7 @@ import {IMAGES, COLORS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
 import {SliderBox} from 'react-native-image-slider-box';
 
-const ItemProduct = () => {
+const ItemProduct = props => {
   const windowHeight = Dimensions.get('window').height;
   const [selectedItem, setSelectedItem] = useState();
   const [images, setImages] = useState([
@@ -22,24 +22,29 @@ const ItemProduct = () => {
 
   return (
     <View style={itemStyle.container}>
-      <View style={{position: 'absolute'}}>
+      <SliderBox
+        images={images}
+        sliderBoxHeight={windowHeight * 0.37}
+        dotColor="#ffffff"
+        inactiveDotColor="#90A4AE"
+        dotStyle={{
+          width: 10,
+          height: 10,
+          borderRadius: 10 / 2,
+          marginBottom: ResponsiveSize(70),
+        }}
+      />
+      <TouchableOpacity
+        onPress={() => props.navigation.goBack('')}
+        style={{position: 'absolute'}}>
         <Image
           source={IMAGES.arrow}
-          style={{width: 10, height: 10, position: 'absolute'}}
-        />
-        <SliderBox
-          images={images}
-          sliderBoxHeight={windowHeight * 0.37}
-          dotColor="#ffffff"
-          inactiveDotColor="#90A4AE"
-          dotStyle={{
-            width: 10,
-            height: 10,
-            borderRadius: 10 / 2,
-            marginBottom: ResponsiveSize(70),
+          style={{
+            marginLeft: ResponsiveSize(20),
+            marginTop: ResponsiveSize(60),
           }}
         />
-      </View>
+      </TouchableOpacity>
       <View style={itemStyle.bottom}>
         <Text style={itemStyle.itemName}>Boston Lettuce</Text>
         <View>

@@ -9,6 +9,7 @@ const {width} = Dimensions.get('window');
 const itemStyle = StyleSheet.create({
   container: {
     flex: 1,
+    position:'relative'
   },
   bottom: {
     backgroundColor: COLORS.grey,
