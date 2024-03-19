@@ -4,7 +4,6 @@ import mainStyle from './style';
 import {IMAGES} from '../../utils/constants';
 
 const MainScreen = props => {
-  console.log('navigation', props);
 
   const handleOrderNow = () => {
     props.navigation.navigate('TabNav');

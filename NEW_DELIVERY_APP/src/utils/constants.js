@@ -23,6 +23,7 @@ export const IMAGES = {
   wishclr: require('../../assets/images/wishclr.png'),
   cart: require('../../assets/images/cart.png'),
   bgImage: require('../../assets/images/bgimage.png'),
+  itemVeg:require('../../assets/images/veg1.png'),
 };
 
 export const FONTS = {
@@ -42,4 +43,5 @@ export const COLORS = {
   border: '#D9D0E3',
   list: '#E2CBFF',
   darkPurple: '#6C0EE4',
+  quantity:'#06BE77'
 };
