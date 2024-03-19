@@ -1,10 +1,14 @@
 import {React, useState} from 'react';
-import {View, Image, Text, FlatList,TouchableOpacity} from 'react-native';
+import {View, Image, Text, FlatList, TouchableOpacity} from 'react-native';
 import categoryStyle from './style';
 import Header from '../../common/header';
-import { IMAGES } from '../../utils/constants';
+import {IMAGES} from '../../utils/constants';
 
-const Categories = () => {
+const Categories = (props) => {
+
+  const handleCard = () => {
+    props.navigation.navigate('Card');
+  };
 
   const [text, onChangeText] = useState('');
 
@@ -13,7 +17,7 @@ const Categories = () => {
       id: '1',
       name: 'Vegetables',
       image: IMAGES.item1,
-      num:43,
+      num: 43,
     },
     {
       id: '2',
@@ -47,14 +51,14 @@ const Categories = () => {
     },
   ];
 
-  const CategoryItem = ({image,name,num}) => (
+  const CategoryItem = ({image, name, num}) => (
     <View style={categoryStyle.itemContainer}>
       <View style={categoryStyle.card}>
-      <TouchableOpacity>
-      <Image source={image} style={categoryStyle.image} />
-      </TouchableOpacity>
-      <Text style={categoryStyle.name}>{name}</Text>
-      <Text style={categoryStyle.items}>({num})</Text>
+        <TouchableOpacity onPress={handleCard}>
+          <Image source={image} style={categoryStyle.image} />
+        </TouchableOpacity>
+        <Text style={categoryStyle.name}>{name}</Text>
+        <Text style={categoryStyle.items}>({num})</Text>
       </View>
     </View>
   );
@@ -66,11 +70,7 @@ const Categories = () => {
         data={categoriesData}
         showsVerticalScrollIndicator={false}
         renderItem={({item}) => (
-            <CategoryItem
-            image={item.image}
-            name={item.name}
-            num={item.num}
-            />
+          <CategoryItem image={item.image} name={item.name} num={item.num} />
         )}
         keyExtractor={item => item.id}
         numColumns={2}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View,Image } from 'react-native';
+import {Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,7 +8,7 @@ import Categories from '../screen/Categories';
 import Checkout from '../screen/Checkout'; 
 import Profile from '../screen/Profile';
 import { IMAGES } from '../utils/constants';
-import ResponsiveSize from '../utils/responsiveSize';
+import Card from '../screen/Card';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -50,6 +50,7 @@ const Routes = ({ switchToTabs }) => (
       ) : (
         <Stack.Screen options={{ headerShown: false }} name="MainStack" component={MainStack} />
       )}
+       <Stack.Screen options={{ headerShown: false }} name="Card" component={Card} />
     </Stack.Navigator>
   </NavigationContainer>
 );
