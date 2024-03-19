@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import {View, Text, FlatList, TouchableOpacity, Image} from 'react-native';
+import { Text, FlatList, TouchableOpacity, Image} from 'react-native';
 import cardStyle from '../screen/Card/style';
 import {COLORS, IMAGES} from '../utils/constants';
 

@@ -7,6 +7,10 @@ import ResponsiveSize from '../utils/responsiveSize';
 const Product = ({products}) => {
   const [selectedItem, setSelectedItem] = useState();
 
+  const handlePress = itemid => {
+    setSelectedItem(itemid === selectedItem ? null : itemid);
+  };
+
   const renderItem = ({item}) => {
     const isSelected = selectedItem === item.id;
     return (
@@ -24,7 +28,7 @@ const Product = ({products}) => {
           </Text>
           <View style={cardStyle.iconsContainer}>
             <TouchableOpacity
-              onPress={() => setSelectedItem(isSelected ? null : item.id)}
+              onPress={() => handlePress(item.id)}
               style={[
                 cardStyle.iconSection,
                 {backgroundColor: isSelected ? COLORS.button : COLORS.white},
@@ -35,13 +39,13 @@ const Product = ({products}) => {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setSelectedItem(isSelected ? null : item.id)}
+              onPress={() => handlePress(item.id)}
               style={[
                 cardStyle.iconSection,
                 {backgroundColor: !isSelected ? COLORS.button : COLORS.white},
               ]}>
               <Image
-                source={!isSelected ? IMAGES.cart : IMAGES.shoppingCart}
+                source={isSelected ? IMAGES.shoppingCart : IMAGES.cart}
                 style={cardStyle.icon}
               />
             </TouchableOpacity>

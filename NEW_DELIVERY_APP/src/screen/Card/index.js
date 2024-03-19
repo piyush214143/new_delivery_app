@@ -43,9 +43,9 @@ const Card = props => {
     },
   ];
 
-  return(
+  return (
     <View style={cardStyle.container}>
-      <Image source={IMAGES.bgImage} style={cardStyle.bGImage}/>
+      <Image source={IMAGES.bgImage} style={cardStyle.bGImage} />
       <Header heading={'Vegetables'} back={() => props.navigation.goBack('')} />
       <View style={cardStyle.sectionContainer}>
         <VegetablesList vegetables={vegetables1} />

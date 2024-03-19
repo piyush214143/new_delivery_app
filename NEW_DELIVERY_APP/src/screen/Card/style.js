@@ -38,19 +38,19 @@ const cardStyle = StyleSheet.create({
   productContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingBottom: '5%',
+    paddingBottom: '3%',
+    paddingTop: '5%',
   },
-  imageContainer: {},
   productImage: {
     borderRadius: ResponsiveSize(8),
-    width: width * 0.46,
+    width: width * 0.4 + ResponsiveSize(20),
     height: windowHeight * 0.16,
   },
   detailsContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-    // paddingLeft: '2%',
     alignItems: 'flex-start',
+    paddingHorizontal: '5%',
   },
   productName: {
     color: COLORS.heading,
@@ -67,12 +67,14 @@ const cardStyle = StyleSheet.create({
     justifyContent: 'space-between',
   },
   iconSection: {
-    paddingHorizontal: ResponsiveSize(20),
+    paddingHorizontal: ResponsiveSize(25),
+    paddingVertical: ResponsiveSize(10),
     borderRadius: ResponsiveSize(8),
+    marginRight: ResponsiveSize(15),
   },
   icon: {
-    width: ResponsiveSize(30),
-    height: ResponsiveSize(30),
+    width: ResponsiveSize(20),
+    height: ResponsiveSize(20),
   },
 });
 
