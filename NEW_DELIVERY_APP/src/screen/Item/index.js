@@ -36,14 +36,12 @@ const ItemProduct = props => {
       />
       <TouchableOpacity
         onPress={() => props.navigation.goBack('')}
-        style={{position: 'absolute'}}>
+        style={{position: 'absolute',flexDirection:'row',marginLeft: ResponsiveSize(20),
+        marginTop: ResponsiveSize(60),}}>
         <Image
           source={IMAGES.arrow}
-          style={{
-            marginLeft: ResponsiveSize(20),
-            marginTop: ResponsiveSize(60),
-          }}
         />
+        <Text style={{color:COLORS.white,marginLeft:ResponsiveSize(10)}}>Back</Text>
       </TouchableOpacity>
       <View style={itemStyle.bottom}>
         <Text style={itemStyle.itemName}>Boston Lettuce</Text>
