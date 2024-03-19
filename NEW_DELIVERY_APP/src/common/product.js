@@ -1,74 +1,64 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, FlatList, TouchableOpacity, Image} from 'react-native';
+import cardStyle from '../screen/Card/style';
+import {COLORS, IMAGES} from '../utils/constants';
+import ResponsiveSize from '../utils/responsiveSize';
 
-const product = ({ item }) => {
+const Product = ({products}) => {
+  const [selectedItem, setSelectedItem] = useState();
 
-  return (
-    <View style={styles.productContainer}>
-      <View style={styles.productContainer}>
-        <Image source={item.image} style={styles.productImage} />
-      </View>
-      <View style={styles.detailsContainer}>
-        <Text style={styles.name}>{item.productName}</Text>
-        <Text style={styles.price}>{item.productPrice}</Text>
-        <View style={styles.iconsContainer}>
-          <TouchableOpacity>
-          <Image source={item.image} style={styles.productImage} />
-          </TouchableOpacity>
-          <TouchableOpacity >
-          <Image source={item.image} style={styles.productImage} />
-          </TouchableOpacity>
+  const renderItem = ({item}) => {
+    const isSelected = selectedItem === item.id;
+    return (
+      <View style={cardStyle.productContainer}>
+        <View style={cardStyle.imageContainer}>
+          <Image source={item.image} style={cardStyle.productImage} />
+        </View>
+        <View style={cardStyle.detailsContainer}>
+          <Text style={cardStyle.productName}>{item.productName}</Text>
+          <Text style={cardStyle.productPrice}>
+            {item.productPrice}
+            <Text style={{color: COLORS.para, fontSize: ResponsiveSize(16)}}>
+              € / piece
+            </Text>
+          </Text>
+          <View style={cardStyle.iconsContainer}>
+            <TouchableOpacity
+              onPress={() => setSelectedItem(isSelected ? null : item.id)}
+              style={[
+                cardStyle.iconSection,
+                {backgroundColor: isSelected ? COLORS.button : COLORS.white},
+              ]}>
+              <Image
+                source={isSelected ? IMAGES.wish : IMAGES.wishclr}
+                style={cardStyle.icon}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setSelectedItem(isSelected ? null : item.id)}
+              style={[
+                cardStyle.iconSection,
+                {backgroundColor: !isSelected ? COLORS.button : COLORS.white},
+              ]}>
+              <Image
+                source={!isSelected ? IMAGES.cart : IMAGES.shoppingCart}
+                style={cardStyle.icon}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-    </View>
-  );
-};
-
-const ProductsList = ({ data }) => {
-  const renderItem = ({ item }) => <ProductItem item={item} />;
+    );
+  };
 
   return (
     <FlatList
-      data={product}
+      data={products}
       renderItem={renderItem}
-      keyExtractor={(item) => item.id}
+      keyExtractor={item => item.id}
+      showsVerticalScrollIndicator={false}
     />
   );
 };
 
-export default ProductsList;
-
-const styles = StyleSheet.create({
-  productContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
-  },
-  imageContainer: {
-    marginRight: 10,
-  },
-  productImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 8,
-  },
-  detailsContainer: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  productName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  productPrice: {
-    fontSize: 14,
-    color: '#666666',
-    marginBottom: 5,
-  },
-  iconsContainer: {
-    flexDirection: 'row',
-  },
-});
+export default Product;
