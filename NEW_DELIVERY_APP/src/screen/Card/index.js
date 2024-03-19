@@ -6,7 +6,8 @@ import VegetablesList from '../../common/vegetablesList';
 import {IMAGES} from '../../utils/constants';
 import Product from '../../common/product';
 
-const Card = props => {
+const Card =(props) => {
+
   const vegetables1 = [
     {id: 1, name: 'Carrot', num: 43},
     {id: 2, name: 'Tomato', num: 21},
@@ -50,7 +51,7 @@ const Card = props => {
       <View style={cardStyle.sectionContainer}>
         <VegetablesList vegetables={vegetables1} />
         <VegetablesList vegetables={vegetables2} />
-        <Product products={products} />
+        <Product products={products} details={()=> props.navigation.navigate('ItemProduct')} />
       </View>
     </View>
   );

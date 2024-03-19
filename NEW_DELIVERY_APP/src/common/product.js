@@ -4,7 +4,7 @@ import cardStyle from '../screen/Card/style';
 import {COLORS, IMAGES} from '../utils/constants';
 import ResponsiveSize from '../utils/responsiveSize';
 
-const Product = ({products}) => {
+const Product = ({products,details}) => {
   const [selectedItem, setSelectedItem] = useState();
 
   const handlePress = itemid => {
@@ -15,9 +15,9 @@ const Product = ({products}) => {
     const isSelected = selectedItem === item.id;
     return (
       <View style={cardStyle.productContainer}>
-        <View style={cardStyle.imageContainer}>
+        <TouchableOpacity onPress={details} style={cardStyle.imageContainer}>
           <Image source={item.image} style={cardStyle.productImage} />
-        </View>
+        </TouchableOpacity>
         <View style={cardStyle.detailsContainer}>
           <Text style={cardStyle.productName}>{item.productName}</Text>
           <Text style={cardStyle.productPrice}>
