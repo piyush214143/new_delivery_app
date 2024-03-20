@@ -3,12 +3,7 @@ import {Image, View, Text, TouchableOpacity} from 'react-native';
 import mainStyle from './style';
 import {IMAGES} from '../../utils/constants';
 
-const MainScreen = props => {
-  console.log('navigation', props);
-
-  const handleOrderNow = () => {
-    props.navigation.navigate('TabNav');
-  };
+const MainScreen = (switchToTabsHandler) => {
 
   return (
     <View style={mainStyle.container}>
@@ -26,8 +21,7 @@ const MainScreen = props => {
           and the courier will leave your order at the door.
         </Text>
         <TouchableOpacity
-          onPress={handleOrderNow}
-          style={mainStyle.btn1Container}>
+          style={mainStyle.btn1Container} onPress={switchToTabsHandler}>
           <Text style={mainStyle.btn1}>ORDER NOW</Text>
         </TouchableOpacity>
         <TouchableOpacity style={mainStyle.btn2Container}>

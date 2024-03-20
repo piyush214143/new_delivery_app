@@ -4,8 +4,8 @@ import categoryStyle from './style';
 import Header from '../../common/header';
 import {IMAGES} from '../../utils/constants';
 
-const Categories = (props) => {
-
+const Categories = props => {
+  
   const handleCard = () => {
     props.navigation.navigate('Card');
   };
