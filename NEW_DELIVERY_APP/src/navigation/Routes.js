@@ -14,7 +14,7 @@ import ItemProduct from '../screen/Item';
 const CustomTabBarBadge = ({ image }) => {
   return (
     <View>
-      {/* <Image source={image} style={{ width: 20, height: 20 }} /> */}
+      <Image source={image} style={{ width: 20, height: 20 }} />
     </View>
   );
 };
@@ -63,7 +63,7 @@ export const TabNav = () => (
   options={{
     headerShown: false,
     tabBarBadge: (<CustomTabBarBadge image={IMAGES.tabBarBadge} />),
-
+tabBarBadgeStyle:{backgroundColor:'white'}
   }}
   name="Checkout"
   component={Checkout}

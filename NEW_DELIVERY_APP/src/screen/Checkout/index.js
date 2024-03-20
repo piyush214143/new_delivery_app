@@ -6,8 +6,8 @@ import ResponsiveSize from '../../utils/responsiveSize';
 import ToggleSwitch from 'toggle-switch-react-native';
 
 const Checkout = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [isOnDefaultToggleSwitch, setIsOnDefaultToggleSwitch] = useState(true);
+  const [selectedOption, setSelectedOption] = useState(false);
+  const [isOnDefaultToggleSwitch, setIsOnDefaultToggleSwitch] = useState(false);
 
   const handleOptionSelect = option => {
     setSelectedOption(option);
@@ -18,19 +18,24 @@ const Checkout = () => {
   };
 
   const CustomToggleSwitchWithLabel = ({
-    isOn,
-    onToggle,
-    label,
-    labelStyle,
-    ...toggleProps
-  }) => {
-    return (
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <Text style={labelStyle}>{label}</Text>
-        <ToggleSwitch isOn={isOn} onToggle={onToggle} {...toggleProps} />
-      </View>
-    );
-  };
+  isOn,
+  onToggle,
+  label,
+  labelStyle,
+  ...toggleProps
+}) => {
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <Text style={labelStyle}>{label}</Text>
+      <ToggleSwitch
+        isOn={isOn}
+        onToggle={onToggle}
+        {...toggleProps}
+      />
+      {isOn && <Text style={{ color:COLORS.heading,position:'absolute',fontSize:ResponsiveSize(14),fontWeight:'500'}}>Yes</Text>}
+    </View>
+  );
+};
 
   return (
     <View style={checkoutStyle.container}>
@@ -127,12 +132,6 @@ const Checkout = () => {
             onColor={COLORS.list}
             offColor={COLORS.grey}
             size="medium"
-            label="Yes"
-            labelStyle={{
-              color: COLORS.heading,
-              fontWeight: '500',
-              fontSize: ResponsiveSize(14),
-            }}
           />
         </View>
       </View>
