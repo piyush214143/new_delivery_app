@@ -24,6 +24,12 @@ export const IMAGES = {
   cart: require('../../assets/images/cart.png'),
   bgImage: require('../../assets/images/bgimage.png'),
   itemVeg:require('../../assets/images/veg1.png'),
+  creditCard:require('../../assets/images/credit-card.png'),
+  home:require('../../assets/images/home.png'),
+  walk:require('../../assets/images/walking.png'),
+  cycle:require('../../assets/images/bike.png'),
+  drone:require('../../assets/images/Drone.png'),
+  
 };
 
 export const FONTS = {
@@ -43,5 +49,7 @@ export const COLORS = {
   border: '#D9D0E3',
   list: '#E2CBFF',
   darkPurple: '#6C0EE4',
-  quantity:'#06BE77'
+  quantity:'#06BE77',
+  black:'#000000',
+  change:'#7203FF',
 };
