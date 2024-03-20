@@ -29,7 +29,7 @@ export const IMAGES = {
   walk:require('../../assets/images/walking.png'),
   cycle:require('../../assets/images/bike.png'),
   drone:require('../../assets/images/Drone.png'),
-  
+  tabBarBadge:require('../../assets/images/8.png'),
 };
 
 export const FONTS = {

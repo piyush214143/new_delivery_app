@@ -23,8 +23,9 @@ const checkoutStyle = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.2,
-    shadowRadius: 20,
+    shadowOpacity: 0.1,
+    shadowRadius: 15,
+  
   },
   checkoutText: {
     color: COLORS.heading,
@@ -35,6 +36,7 @@ const checkoutStyle = StyleSheet.create({
     flex: 1,
     padding: ResponsiveSize(20),
     justifyContent: 'space-evenly',
+    paddingTop:'-10%'
   },
   options: {
     flexDirection: 'row',
@@ -51,21 +53,34 @@ const checkoutStyle = StyleSheet.create({
     color: COLORS.change,
     fontWeight: '600',
   },
-  delievery: {},
+  DeliveryOptions:{
+    flexDirection:'row',
+    alignItems: 'center',
+    justifyContent:'space-between',
+    paddingBottom:'10%'
+  },
+  delivery: {
+   justifyContent:'space-evenly'
+  },
   cardDetails: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  DeliveryDetails:{
+    flexDirection: 'row',
   },
   DetailsText: {
     fontSize: ResponsiveSize(17),
     color: COLORS.para,
     fontWeight: '400',
     fontFamily: FONTS.sfRegular,
-    paddingHorizontal: ResponsiveSize(20),
+    paddingHorizontal: '10%',
+    lineHeight:ResponsiveSize(25.5)
   },
   tick: {
     justifyContent:'flex-end' 
   },
+
 });
 
 export default checkoutStyle;

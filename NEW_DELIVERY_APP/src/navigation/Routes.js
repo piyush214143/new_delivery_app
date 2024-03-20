@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image} from 'react-native';
+import {Image,View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
@@ -10,6 +10,14 @@ import Profile from '../screen/Profile';
 import {IMAGES} from '../utils/constants';
 import Card from '../screen/Card';
 import ItemProduct from '../screen/Item';
+
+const CustomTabBarBadge = ({ image }) => {
+  return (
+    <View>
+      {/* <Image source={image} style={{ width: 20, height: 20 }} /> */}
+    </View>
+  );
+};
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -51,11 +59,16 @@ export const TabNav = () => (
       name="Categories"
       component={Categories}
     />
-    <Tab.Screen
-      options={{headerShown: false}}
-      name="Checkout"
-      component={Checkout}
-    />
+   <Tab.Screen
+  options={{
+    headerShown: false,
+    tabBarBadge: (<CustomTabBarBadge image={IMAGES.tabBarBadge} />),
+
+  }}
+  name="Checkout"
+  component={Checkout}
+/>
+
     <Tab.Screen
       options={{headerShown: false}}
       name="Profile"
