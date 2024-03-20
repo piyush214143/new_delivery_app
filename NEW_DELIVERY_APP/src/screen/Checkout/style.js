@@ -63,6 +63,9 @@ const checkoutStyle = StyleSheet.create({
     fontFamily: FONTS.sfRegular,
     paddingHorizontal: ResponsiveSize(20),
   },
+  tick: {
+    justifyContent:'flex-end' 
+  },
 });
 
 export default checkoutStyle;
