@@ -6,7 +6,7 @@ const App = props => {
   return (
     <View style={{flex: 1}}>
       <StatusBar backgroundColor={'black'} translucent />
-      <Routes />
+      <Routes/>
     </View>
   );
 };
