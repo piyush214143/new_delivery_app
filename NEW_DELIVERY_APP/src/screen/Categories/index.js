@@ -5,7 +5,6 @@ import Header from '../../common/header';
 import {IMAGES} from '../../utils/constants';
 
 const Categories = props => {
-  
   const handleCard = () => {
     props.navigation.navigate('Card');
   };
@@ -65,7 +64,12 @@ const Categories = props => {
 
   return (
     <View style={categoryStyle.container}>
-      <Header heading={'Categories'} value={text} onChangeText={onChangeText} />
+      <Header
+        heading={'Categories'}
+        back={() => props.navigation.goBack('')}
+        value={text}
+        onChangeText={onChangeText}
+      />
       <FlatList
         data={categoriesData}
         showsVerticalScrollIndicator={false}
