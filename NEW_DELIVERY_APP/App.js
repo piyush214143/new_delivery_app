@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
-import { StatusBar, View } from 'react-native';
+import React, {useState} from 'react';
+import {StatusBar, View} from 'react-native';
 import Routes from './src/navigation/Routes';
 
-const App = (props) => {
-  const [switchToTabs, setSwitchToTabs] = useState(true);
-
-  const switchToTabsHandler = () => {
-    setSwitchToTabs(true);
-  };
-
+const App = props => {
   return (
-   
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <StatusBar backgroundColor={'black'} translucent />
-      <Routes switchToTabs={switchToTabs} />
+      <Routes />
     </View>
-    
   );
 };
 

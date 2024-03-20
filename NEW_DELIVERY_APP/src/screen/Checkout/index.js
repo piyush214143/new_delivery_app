@@ -18,24 +18,30 @@ const Checkout = () => {
   };
 
   const CustomToggleSwitchWithLabel = ({
-  isOn,
-  onToggle,
-  label,
-  labelStyle,
-  ...toggleProps
-}) => {
-  return (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-      <Text style={labelStyle}>{label}</Text>
-      <ToggleSwitch
-        isOn={isOn}
-        onToggle={onToggle}
-        {...toggleProps}
-      />
-      {isOn && <Text style={{ color:COLORS.heading,position:'absolute',fontSize:ResponsiveSize(14),fontWeight:'500'}}>Yes</Text>}
-    </View>
-  );
-};
+    isOn,
+    onToggle,
+    label,
+    labelStyle,
+    ...toggleProps
+  }) => {
+    return (
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <Text style={labelStyle}>{label}</Text>
+        <ToggleSwitch isOn={isOn} onToggle={onToggle} {...toggleProps} />
+        {isOn && (
+          <Text
+            style={{
+              color: COLORS.heading,
+              position: 'absolute',
+              fontSize: ResponsiveSize(14),
+              fontWeight: '500',
+            }}>
+            Yes
+          </Text>
+        )}
+      </View>
+    );
+  };
 
   return (
     <View style={checkoutStyle.container}>
