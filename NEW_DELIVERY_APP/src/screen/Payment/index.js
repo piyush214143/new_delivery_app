@@ -101,29 +101,32 @@ const Payment = props => {
         </TouchableOpacity>
         <View style={paymentStyle.inputContainer}>
         <View>
-          <Text style={paymentStyle.cardLabel}>Card Number</Text>
+          <Text style={paymentStyle.cardLabel}>Card number</Text>
           <TextInput
             style={paymentStyle.input}
-            placeholder="Card Number"
+            placeholder="**** **** **** ****"
             onChangeText={(text) => setCardNumber(text)}
+            maxLength={19}
           />
           <Text>{validateCardNumber(cardNumber) ? '' : 'Invalid'} </Text>
         </View>
         <View>
-          <Text style={paymentStyle.cardLabel}>Card Holder</Text>
+          <Text style={paymentStyle.cardLabel}>Name on card</Text>
           <TextInput
             style={paymentStyle.input}
-            placeholder="Name on Card"
+            placeholder="Vaishali Yadav"
             onChangeText={(text) => setCardName(text)}
+            maxLength={35}
           />
           {/* Validation text for card holder name */}
         </View>
         <View>
-          <Text style={paymentStyle.cardLabel}>Expiry</Text>
+          <Text style={paymentStyle.cardLabel}>Expiry date</Text>
           <TextInput
             style={paymentStyle.input}
-            placeholder="Expiry"
+            placeholder="02/26"
             onChangeText={(text) => setExpiry(text)}
+            maxLength={5}
           />
           <Text>{validateExpiry(expiry) ? '' : 'Invalid'}</Text>
         </View>
@@ -131,8 +134,9 @@ const Payment = props => {
           <Text style={paymentStyle.cardLabel}>CVV</Text>
           <TextInput
             style={paymentStyle.input}
-            placeholder="CVV"
+            placeholder="***"
             onChangeText={(text) => setCVV(text)}
+            maxLength={3}
           />
           <Text>{validateCVV(cvv) ? '' : 'Invalid'}</Text>
         </View>
