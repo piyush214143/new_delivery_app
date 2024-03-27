@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Header from '../../common/header';
 import paymentStyle from './style';
+import mainStyle from '../MainScreen/style';
 
 const Payment = props => {
   const [text, onChangeText] = useState('');
@@ -136,6 +137,10 @@ const Payment = props => {
           <Text>{validateCVV(cvv) ? '' : 'Invalid'}</Text>
         </View>
       </View>
+      <TouchableOpacity
+          style={mainStyle.btn1Container}>
+          <Text style={mainStyle.btn1}>USE THIS CARD</Text>
+        </TouchableOpacity>
     </View>
   );
 };

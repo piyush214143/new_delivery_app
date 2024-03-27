@@ -65,10 +65,11 @@ const mainStyle = StyleSheet.create({
   },
   btn1Container: {
     backgroundColor: COLORS.button,
-    paddingHorizontal: '30%',
+    paddingHorizontal: '33%',
     height: ResponsiveSize(56),
     borderRadius: ResponsiveSize(8),
     justifyContent: 'center',
+    alignSelf:'center'
   },
   btn1: {
     color: COLORS.white,
