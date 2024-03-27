@@ -17,8 +17,8 @@ const paymentStyle = StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    width: 300,
-    height: 200,
+    // width: width,
+    height: windowHeight/4,
     borderRadius: 15,
     overflow: 'hidden',
   },
@@ -27,11 +27,15 @@ const paymentStyle = StyleSheet.create({
   },
   cardFace: {
     position: 'absolute',
-    width: '100%',
-    height: '100%',
+    // width: '100%',
+    // height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     backfaceVisibility: 'hidden',
+    left:0,
+    right:0,
+    top:0,
+    bottom:0
   },
   cardFaceFront: {
     backgroundColor: '#000',

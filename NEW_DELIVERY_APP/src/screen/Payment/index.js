@@ -20,15 +20,15 @@ const Payment = props => {
   const [isFlipped, setIsFlipped] = useState(false);
   const flipAnimation = useRef(new Animated.Value(0)).current;
 
-  const validateCardNumber = (number) => {
+  const validateCardNumber = number => {
     return /^\d{16}$/.test(number);
   };
 
-  const validateExpiry = (date) => {
+  const validateExpiry = date => {
     return /^\d{2}\/\d{2}$/.test(date);
   };
 
-  const validateCVV = (cvv) => {
+  const validateCVV = cvv => {
     return /^\d{3}$/.test(cvv);
   };
 
@@ -69,43 +69,43 @@ const Payment = props => {
         onChangeText={onChangeText}
         search
       />
-        <TouchableOpacity onPress={handleFlip}>
-          <View
+      <TouchableOpacity onPress={handleFlip}>
+        <View
+          style={[
+            paymentStyle.card,
+            isFlipped ? paymentStyle.flippedCard : null,
+          ]}>
+          <Animated.View
             style={[
-              paymentStyle.card,
-              isFlipped ? paymentStyle.flippedCard : null,
+              paymentStyle.cardFace,
+              paymentStyle.cardFaceFront,
+              frontAnimatedStyle,
             ]}>
-            <Animated.View
-              style={[
-                paymentStyle.cardFace,
-                paymentStyle.cardFaceFront,
-                frontAnimatedStyle,
-              ]}>
-              <Text style={paymentStyle.cardValue}>
-                {cardNumber || '#### #### #### ####'}
-              </Text>
-              <Text style={paymentStyle.cardValue}>
-                {cardName || 'YOUR NAME'}
-              </Text>
-               <Text style={paymentStyle.cardValue}>{expiry || 'MM/YY'}</Text>
-            </Animated.View>
-            <Animated.View
-              style={[
-                paymentStyle.cardFace,
-                paymentStyle.cardFaceBack,
-                backAnimatedStyle,
-              ]}>
-              <Text style={paymentStyle.cardValueFlipped}>{cvv || 'CVV'}</Text>
-            </Animated.View>
-          </View>
-        </TouchableOpacity>
-        <View style={paymentStyle.inputContainer}>
+            <Text style={paymentStyle.cardValue}>
+              {cardNumber || '#### #### #### ####'}
+            </Text>
+            <Text style={paymentStyle.cardValue}>
+              {cardName || 'YOUR NAME'}
+            </Text>
+            <Text style={paymentStyle.cardValue}>{expiry || 'MM/YY'}</Text>
+          </Animated.View>
+          <Animated.View
+            style={[
+              paymentStyle.cardFace,
+              paymentStyle.cardFaceBack,
+              backAnimatedStyle,
+            ]}>
+            <Text style={paymentStyle.cardValueFlipped}>{cvv || 'CVV'}</Text>
+          </Animated.View>
+        </View>
+      </TouchableOpacity>
+      <View style={paymentStyle.inputContainer}>
         <View>
           <Text style={paymentStyle.cardLabel}>Card number</Text>
           <TextInput
             style={paymentStyle.input}
             placeholder="**** **** **** ****"
-            onChangeText={(text) => setCardNumber(text)}
+            onChangeText={text => setCardNumber(text)}
             maxLength={19}
           />
           <Text>{validateCardNumber(cardNumber) ? '' : 'Invalid'} </Text>
@@ -115,7 +115,7 @@ const Payment = props => {
           <TextInput
             style={paymentStyle.input}
             placeholder="Vaishali Yadav"
-            onChangeText={(text) => setCardName(text)}
+            onChangeText={text => setCardName(text)}
             maxLength={35}
           />
           {/* Validation text for card holder name */}
@@ -125,7 +125,7 @@ const Payment = props => {
           <TextInput
             style={paymentStyle.input}
             placeholder="02/26"
-            onChangeText={(text) => setExpiry(text)}
+            onChangeText={text => setExpiry(text)}
             maxLength={5}
           />
           <Text>{validateExpiry(expiry) ? '' : 'Invalid'}</Text>
@@ -135,16 +135,15 @@ const Payment = props => {
           <TextInput
             style={paymentStyle.input}
             placeholder="***"
-            onChangeText={(text) => setCVV(text)}
+            onChangeText={text => setCVV(text)}
             maxLength={3}
           />
           <Text>{validateCVV(cvv) ? '' : 'Invalid'}</Text>
         </View>
       </View>
-      <TouchableOpacity
-          style={mainStyle.btn1Container}>
-          <Text style={mainStyle.btn1}>USE THIS CARD</Text>
-        </TouchableOpacity>
+      <TouchableOpacity style={mainStyle.btn1Container}>
+        <Text style={mainStyle.btn1}>USE THIS CARD</Text>
+      </TouchableOpacity>
     </View>
   );
 };
