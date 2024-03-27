@@ -5,12 +5,16 @@ import {COLORS, IMAGES} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
 import ToggleSwitch from 'toggle-switch-react-native';
 
-const Checkout = () => {
+const Checkout = (props) => {
   const [selectedOption, setSelectedOption] = useState(false);
   const [isOnDefaultToggleSwitch, setIsOnDefaultToggleSwitch] = useState(false);
 
   const handleOptionSelect = option => {
     setSelectedOption(option);
+  };
+
+  const moveToPayment = () => {
+    props.navigation.navigate('Payment');
   };
 
   const handleToggle = () => {
@@ -53,7 +57,9 @@ const Checkout = () => {
       <View style={checkoutStyle.checkoutContainer}>
         <View style={checkoutStyle.options}>
           <Text style={checkoutStyle.optionText}>Payment method</Text>
+          <TouchableOpacity onPress={moveToPayment}>
           <Text style={checkoutStyle.change}>CHANGE</Text>
+          </TouchableOpacity>
         </View>
         <View style={checkoutStyle.cardDetails}>
           <Image source={IMAGES.creditCard} />

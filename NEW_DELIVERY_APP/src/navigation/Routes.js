@@ -10,6 +10,7 @@ import Profile from '../screen/Profile';
 import {IMAGES} from '../utils/constants';
 import Card from '../screen/Card';
 import ItemProduct from '../screen/Item';
+import Payment from '../screen/Payment';
 
 const CustomTabBarBadge = ({image}) => {
   return (
@@ -21,16 +22,6 @@ const CustomTabBarBadge = ({image}) => {
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-
-// export const MainStack = () => (
-//   <Stack.Navigator>
-//     <Stack.Screen
-//       options={{headerShown: false}}
-//       name="MainScreen"
-//       component={MainScreen}
-//     />
-//   </Stack.Navigator>
-// );
 
 export const TabNav = () => (
   <Tab.Navigator
@@ -99,6 +90,11 @@ const Routes = () => (
         options={{headerShown: false}}
         name="ItemProduct"
         component={ItemProduct}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="Payment"
+        component={Payment}
       />
     </Stack.Navigator>
   </NavigationContainer>
