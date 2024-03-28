@@ -30,6 +30,8 @@ export const IMAGES = {
   cycle:require('../../assets/images/bike.png'),
   drone:require('../../assets/images/Drone.png'),
   tabBarBadge:require('../../assets/images/8.png'),
+  cardBase:require('../../assets/images/Base.png'),
+  basePart:require('../../assets/images/Ellipse.png'),
 };
 
 export const FONTS = {

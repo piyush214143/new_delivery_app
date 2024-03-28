@@ -11,6 +11,7 @@ const paymentStyle = StyleSheet.create({
     backgroundColor: COLORS.grey,
     height: windowHeight,
     padding: ResponsiveSize(20),
+    flex:1
   },
   imageContainer: {
     flex: 1,
@@ -51,16 +52,24 @@ const paymentStyle = StyleSheet.create({
   cardValue: {
     color: '#fff',
     fontSize: 16,
+    position:'absolute'
+  },
+  cardHolder:{
+    color: '#fff',
+    fontSize: 16,
+    position:'absolute'
   },
   cardValueFlipped: {
     color: '#fff',
     fontSize: 16,
-     transform: [{ scaleX: -1 }],
+    position:'absolute',
+    transform: [{ scaleX: -1 }],
   },
   inputContainer: {
     marginTop: 20,
     width: '100%',
     paddingHorizontal: 20,
+    flex:1
   },
   input: {
     height: 40,

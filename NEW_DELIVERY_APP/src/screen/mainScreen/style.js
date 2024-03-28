@@ -69,7 +69,7 @@ const mainStyle = StyleSheet.create({
     height: ResponsiveSize(56),
     borderRadius: ResponsiveSize(8),
     justifyContent: 'center',
-    alignSelf:'center'
+    alignSelf:'center',
   },
   btn1: {
     color: COLORS.white,

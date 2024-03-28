@@ -6,10 +6,12 @@ import {
   Animated,
   TouchableOpacity,
   Easing,
+  Image,
 } from 'react-native';
 import Header from '../../common/header';
 import paymentStyle from './style';
 import mainStyle from '../MainScreen/style';
+import { IMAGES } from '../../utils/constants';
 
 const Payment = props => {
   const [text, onChangeText] = useState('');
@@ -81,13 +83,17 @@ const Payment = props => {
               paymentStyle.cardFaceFront,
               frontAnimatedStyle,
             ]}>
-            <Text style={paymentStyle.cardValue}>
-              {cardNumber || '#### #### #### ####'}
-            </Text>
-            <Text style={paymentStyle.cardValue}>
-              {cardName || 'YOUR NAME'}
-            </Text>
-            <Text style={paymentStyle.cardValue}>{expiry || 'MM/YY'}</Text>
+            <Image
+              source={IMAGES.cardBase}
+              style={paymentStyle.cardImage}
+              resizeMode="cover"/>
+              <Text style={paymentStyle.cardHolder}>
+                {cardName || 'VAISHALI YADAV'}
+              </Text>
+              <Text style={paymentStyle.cardValue}>
+                {cardNumber || '4747 4747 4747 4747'}
+              </Text>
+              <Text style={paymentStyle.cardExpiry}>{expiry || '02/26'}</Text>
           </Animated.View>
           <Animated.View
             style={[
@@ -95,7 +101,11 @@ const Payment = props => {
               paymentStyle.cardFaceBack,
               backAnimatedStyle,
             ]}>
-            <Text style={paymentStyle.cardValueFlipped}>{cvv || 'CVV'}</Text>
+               <Image
+              source={IMAGES.cardBase}
+              style={paymentStyle.cardImage}
+              resizeMode="cover"/>
+            <Text style={paymentStyle.cardValueFlipped}>{cvv || '***'}</Text>
           </Animated.View>
         </View>
       </TouchableOpacity>
@@ -108,7 +118,7 @@ const Payment = props => {
             onChangeText={text => setCardNumber(text)}
             maxLength={19}
           />
-          <Text>{validateCardNumber(cardNumber) ? '' : 'Invalid'} </Text>
+          <Text>{validateCardNumber(cardNumber) ? '' : 'Invalid'}</Text>
         </View>
         <View>
           <Text style={paymentStyle.cardLabel}>Name on card</Text>
@@ -118,7 +128,6 @@ const Payment = props => {
             onChangeText={text => setCardName(text)}
             maxLength={35}
           />
-          {/* Validation text for card holder name */}
         </View>
         <View>
           <Text style={paymentStyle.cardLabel}>Expiry date</Text>
