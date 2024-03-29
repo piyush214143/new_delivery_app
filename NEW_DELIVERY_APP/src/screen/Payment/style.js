@@ -14,8 +14,12 @@ const paymentStyle = StyleSheet.create({
     paddingTop: ResponsiveSize(40),
     flex: 1,
   },
+  cardContainer: {
+    height: '25%',
+    width:'100%'
+  },
   card: {
-    height: windowHeight * 0.25,
+    height: windowHeight*0.23,
     width: width * 0.47,
     paddingHorizontal: ResponsiveSize(170),
     borderRadius: ResponsiveSize(8),
@@ -42,8 +46,8 @@ const paymentStyle = StyleSheet.create({
   mcSymbol: {
     position: 'absolute',
     alignSelf: 'flex-end',
-    top: ResponsiveSize(20),
-    right: ResponsiveSize(20),
+    top: '10%',
+    right:'5%',
   },
   cardFaceBack: {
     transform: [{rotateY: '180deg'}],
@@ -77,9 +81,9 @@ const paymentStyle = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     position: 'absolute',
-    bottom: ResponsiveSize(30),
-    left: ResponsiveSize(30),
-    right: ResponsiveSize(30),
+    bottom: '15%',
+    left: '10%',
+    right: '10%',
   },
   cardHolder: {
     color: COLORS.white,
@@ -127,18 +131,18 @@ const paymentStyle = StyleSheet.create({
     paddingVertical: ResponsiveSize(10),
     paddingHorizontal: ResponsiveSize(10),
   },
-  invalid:{
-   color:'red',
+  invalid: {
+    color: 'red',
   },
   btn1Container: {
     backgroundColor: COLORS.button,
-    width: width * 0.90,
+    width: width * 0.9,
     height: ResponsiveSize(56),
     borderRadius: ResponsiveSize(8),
     marginBottom: ResponsiveSize(20),
-    justifyContent:'center',
-    alignItems:'center',
-    alignSelf:'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
   },
   btn1: {
     color: COLORS.white,

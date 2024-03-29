@@ -13,7 +13,6 @@ import categoryStyle from '../Categories/style';
 import {COLORS, IMAGES} from '../../utils/constants';
 
 const Payment = props => {
-  const [text, onChangeText] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [cardName, setCardName] = useState('');
   const [expiry, setExpiry] = useState('');
@@ -87,6 +86,7 @@ const Payment = props => {
         </TouchableOpacity>
         <Text style={categoryStyle.heading}>Credit / Debit card</Text>
       </View>
+      <View style={paymentStyle.cardContainer}>
       <TouchableOpacity onPress={handleFlip}>
         <View
           style={[
@@ -132,6 +132,7 @@ const Payment = props => {
           </Animated.View>
         </View>
       </TouchableOpacity>
+      </View>
       <View style={paymentStyle.inputContainer}>
         <Image source={IMAGES.photoIcon} style={paymentStyle.photoIcon} />
         <View>
