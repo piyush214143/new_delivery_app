@@ -87,13 +87,23 @@ const Payment = props => {
               source={IMAGES.cardBase}
               style={paymentStyle.cardImage}
               resizeMode="cover"/>
-              <Text style={paymentStyle.cardHolder}>
-                {cardName || 'VAISHALI YADAV'}
-              </Text>
+              <Image 
+              source={IMAGES.basePart}
+              style={paymentStyle.basePart}
+              />
+              <Image
+              source={IMAGES.mcSymbol}
+              style={paymentStyle.mcSymbol}
+              />
               <Text style={paymentStyle.cardValue}>
                 {cardNumber || '4747 4747 4747 4747'}
               </Text>
+              <View style={paymentStyle.cardRow}>
+              <Text style={paymentStyle.cardHolder}>
+                {cardName || 'VAISHALI YADAV'}
+              </Text>
               <Text style={paymentStyle.cardExpiry}>{expiry || '02/26'}</Text>
+              </View>
           </Animated.View>
           <Animated.View
             style={[
@@ -135,7 +145,7 @@ const Payment = props => {
         <View>
           <Text style={paymentStyle.cardLabel}>Expiry date</Text>
           <TextInput
-            style={paymentStyle.input}
+            style={paymentStyle.inputRow}
             placeholder="02/26"
             onChangeText={text => setExpiry(text)}
             maxLength={5}
@@ -145,7 +155,7 @@ const Payment = props => {
         <View>
           <Text style={paymentStyle.cardLabel}>CVV</Text>
           <TextInput
-            style={paymentStyle.input}
+            style={paymentStyle.inputRow}
             placeholder="***"
             onChangeText={text => setCVV(text)}
             maxLength={3}

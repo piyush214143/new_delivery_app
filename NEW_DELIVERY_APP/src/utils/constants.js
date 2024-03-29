@@ -33,6 +33,8 @@ export const IMAGES = {
   cardBase:require('../../assets/images/Base.png'),
   basePart:require('../../assets/images/Ellipse.png'),
   photoIcon:require('../../assets/images/photoIcon.png'),
+  cardSymbol:require('../../assets/images/cardSymbol.png'),
+  mcSymbol:require('../../assets/images/mc_symbol.png'),
 };
 
 export const FONTS = {
