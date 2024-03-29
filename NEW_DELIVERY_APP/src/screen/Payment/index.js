@@ -11,7 +11,8 @@ import {
 import Header from '../../common/header';
 import paymentStyle from './style';
 import mainStyle from '../MainScreen/style';
-import { IMAGES } from '../../utils/constants';
+import categoryStyle from '../Categories/style';
+import { COLORS, IMAGES } from '../../utils/constants';
 
 const Payment = props => {
   const [text, onChangeText] = useState('');
@@ -63,14 +64,13 @@ const Payment = props => {
   };
 
   return (
-    <View style={paymentStyle.container}>
-      <Header
-        heading={'Credit / Debit card'}
-        back={() => props.navigation.goBack('')}
-        value={text}
-        onChangeText={onChangeText}
-        search
-      />
+    <View style={paymentStyle.container}>   
+      <View style={categoryStyle.header}>
+      <TouchableOpacity onPress={() => props.navigation.goBack('')}>
+        <Image source={IMAGES.arrow} style={categoryStyle.arrow}/>
+        </TouchableOpacity>
+        <Text style={categoryStyle.heading}>Credit / Debit card</Text>
+      </View>     
       <TouchableOpacity onPress={handleFlip}>
         <View
           style={[
@@ -110,6 +110,17 @@ const Payment = props => {
         </View>
       </TouchableOpacity>
       <View style={paymentStyle.inputContainer}>
+        <Image source={IMAGES.photoIcon} style={paymentStyle.photoIcon}/>
+        <View>
+          <Text style={paymentStyle.cardLabel}>Name on card</Text>
+          <TextInput
+            style={paymentStyle.input}
+            placeholder="Vaishali Yadav"
+            placeholderTextColor={COLORS.border}
+            onChangeText={text => setCardName(text)}
+            maxLength={35}
+          />
+        </View>
         <View>
           <Text style={paymentStyle.cardLabel}>Card number</Text>
           <TextInput
@@ -120,15 +131,7 @@ const Payment = props => {
           />
           <Text>{validateCardNumber(cardNumber) ? '' : 'Invalid'}</Text>
         </View>
-        <View>
-          <Text style={paymentStyle.cardLabel}>Name on card</Text>
-          <TextInput
-            style={paymentStyle.input}
-            placeholder="Vaishali Yadav"
-            onChangeText={text => setCardName(text)}
-            maxLength={35}
-          />
-        </View>
+        <View style={paymentStyle.detailCard}>
         <View>
           <Text style={paymentStyle.cardLabel}>Expiry date</Text>
           <TextInput
@@ -149,10 +152,11 @@ const Payment = props => {
           />
           <Text>{validateCVV(cvv) ? '' : 'Invalid'}</Text>
         </View>
-      </View>
-      <TouchableOpacity style={mainStyle.btn1Container}>
+        </View>
+        <TouchableOpacity style={mainStyle.btn1Container}>
         <Text style={mainStyle.btn1}>USE THIS CARD</Text>
       </TouchableOpacity>
+      </View> 
     </View>
   );
 };

@@ -24,6 +24,11 @@ const categoryStyle = StyleSheet.create({
     justifyContent: 'space-evenly',
     height: windowHeight * 0.23,
   },
+  header: {
+    height: windowHeight * 0.15,
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+  },
   heading: {
     fontSize: ResponsiveSize(31),
     color: COLORS.heading,
@@ -61,8 +66,6 @@ const categoryStyle = StyleSheet.create({
     resizeMode: 'cover',
     width: '100%',
     height: '87%',
-    //  borderTopStartRadius: ResponsiveSize(8),
-    //  borderTopEndRadius: ResponsiveSize(8),
   },
   name: {
     fontSize: ResponsiveSize(18),

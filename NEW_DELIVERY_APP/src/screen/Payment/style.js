@@ -11,73 +11,72 @@ const paymentStyle = StyleSheet.create({
     backgroundColor: COLORS.grey,
     height: windowHeight,
     padding: ResponsiveSize(20),
-    flex:1
-  },
-  imageContainer: {
+    paddingTop:ResponsiveSize(40),
     flex: 1,
-    alignItems: 'center',
   },
   card: {
-    // width: width,
-    height: windowHeight/4,
-    borderRadius: 15,
+    padding:ResponsiveSize(120),
+    borderRadius: ResponsiveSize(8),
     overflow: 'hidden',
   },
   flippedCard: {
-    transform: [{ rotateY: '180deg' }],
+    transform: [{rotateY: '180deg'}],
   },
   cardFace: {
     position: 'absolute',
-    // width: '100%',
-    // height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
     backfaceVisibility: 'hidden',
-    left:0,
-    right:0,
-    top:0,
-    bottom:0
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
   },
   cardFaceFront: {
-    backgroundColor: '#000',
   },
   cardFaceBack: {
-    backgroundColor: '#555',
-    transform: [{ rotateY: '180deg' }],
+    transform: [{rotateY: '180deg'}],
   },
   cardLabel: {
-    color: 'black',
-    fontSize: 12,
+    color:COLORS.para,
+    fontSize: ResponsiveSize(14),
+    paddingHorizontal: ResponsiveSize(10),
   },
   cardValue: {
     color: '#fff',
     fontSize: 16,
-    position:'absolute'
+    position: 'absolute',
   },
-  cardHolder:{
+  detailCard: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  cardHolder: {
     color: '#fff',
     fontSize: 16,
-    position:'absolute'
+    position: 'absolute',
   },
   cardValueFlipped: {
     color: '#fff',
     fontSize: 16,
-    position:'absolute',
-    transform: [{ scaleX: -1 }],
+    position: 'absolute',
+    transform: [{scaleX: -1}],
   },
   inputContainer: {
-    marginTop: 20,
-    width: '100%',
-    paddingHorizontal: 20,
-    flex:1
+    flex: 1,
+    justifyContent:'space-evenly'
+  },
+  photoIcon:{
+  alignSelf:'center'
   },
   input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingHorizontal: 10,
+    borderColor: COLORS.border,
+    backgroundColor:COLORS.white,
+    borderWidth: ResponsiveSize(1),
+    borderRadius:ResponsiveSize(8),
+    color:COLORS.heading,
+    fontSize:ResponsiveSize(17),
+    paddingVertical:ResponsiveSize(10),
+    paddingHorizontal: ResponsiveSize(10),
   },
-})
+});
 
 export default paymentStyle;

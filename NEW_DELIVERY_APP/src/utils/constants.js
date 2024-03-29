@@ -32,6 +32,7 @@ export const IMAGES = {
   tabBarBadge:require('../../assets/images/8.png'),
   cardBase:require('../../assets/images/Base.png'),
   basePart:require('../../assets/images/Ellipse.png'),
+  photoIcon:require('../../assets/images/photoIcon.png'),
 };
 
 export const FONTS = {
