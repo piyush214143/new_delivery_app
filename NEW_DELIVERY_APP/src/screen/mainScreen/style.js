@@ -10,6 +10,9 @@ const mainStyle = StyleSheet.create({
     backgroundColor: COLORS.background,
     height: windowHeight,
   },
+  background:{
+   alignSelf:'flex-end'
+  },
   logoContainer: {
     width: ResponsiveSize(63),
     height: ResponsiveSize(63),

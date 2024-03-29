@@ -15,9 +15,10 @@ const paymentStyle = StyleSheet.create({
     flex: 1,
   },
   card: {
-    padding:ResponsiveSize(120),
+    height:windowHeight * 0.15,
     borderRadius: ResponsiveSize(8),
     overflow: 'hidden',
+    alignSelf:'center'
   },
   flippedCard: {
     transform: [{rotateY: '180deg'}],
