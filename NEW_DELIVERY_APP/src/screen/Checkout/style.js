@@ -24,8 +24,7 @@ const checkoutStyle = StyleSheet.create({
       height: 2,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 15,
-  
+    shadowRadius: ResponsiveSize(15),
   },
   checkoutText: {
     color: COLORS.heading,
@@ -57,7 +56,7 @@ const checkoutStyle = StyleSheet.create({
     flexDirection:'row',
     alignItems: 'center',
     justifyContent:'space-between',
-    paddingBottom:'10%'
+    paddingBottom:'2%'
   },
   delivery: {
    justifyContent:'space-evenly'
