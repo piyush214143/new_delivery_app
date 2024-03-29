@@ -8,11 +8,9 @@ import {
   Easing,
   Image,
 } from 'react-native';
-import Header from '../../common/header';
 import paymentStyle from './style';
-import mainStyle from '../MainScreen/style';
 import categoryStyle from '../Categories/style';
-import { COLORS, IMAGES } from '../../utils/constants';
+import {COLORS, IMAGES} from '../../utils/constants';
 
 const Payment = props => {
   const [text, onChangeText] = useState('');
@@ -64,13 +62,13 @@ const Payment = props => {
   };
 
   return (
-    <View style={paymentStyle.container}>   
+    <View style={paymentStyle.container}>
       <View style={categoryStyle.header}>
-      <TouchableOpacity onPress={() => props.navigation.goBack('')}>
-        <Image source={IMAGES.arrow} style={categoryStyle.arrow}/>
+        <TouchableOpacity onPress={() => props.navigation.goBack('')}>
+          <Image source={IMAGES.arrow} style={categoryStyle.arrow} />
         </TouchableOpacity>
         <Text style={categoryStyle.heading}>Credit / Debit card</Text>
-      </View>     
+      </View>
       <TouchableOpacity onPress={handleFlip}>
         <View
           style={[
@@ -86,24 +84,19 @@ const Payment = props => {
             <Image
               source={IMAGES.cardBase}
               style={paymentStyle.cardImage}
-              resizeMode="cover"/>
-              <Image 
-              source={IMAGES.basePart}
-              style={paymentStyle.basePart}
-              />
-              <Image
-              source={IMAGES.mcSymbol}
-              style={paymentStyle.mcSymbol}
-              />
-              <Text style={paymentStyle.cardValue}>
-                {cardNumber || '4747 4747 4747 4747'}
-              </Text>
-              <View style={paymentStyle.cardRow}>
+              resizeMode="cover"
+            />
+            <Image source={IMAGES.basePart} style={paymentStyle.basePart} />
+            <Image source={IMAGES.mcSymbol} style={paymentStyle.mcSymbol} />
+            <Text style={paymentStyle.cardValue}>
+              {cardNumber || '4747 4747 4747 4747'}
+            </Text>
+            <View style={paymentStyle.cardRow}>
               <Text style={paymentStyle.cardHolder}>
                 {cardName || 'VAISHALI YADAV'}
               </Text>
               <Text style={paymentStyle.cardExpiry}>{expiry || '02/26'}</Text>
-              </View>
+            </View>
           </Animated.View>
           <Animated.View
             style={[
@@ -111,16 +104,18 @@ const Payment = props => {
               paymentStyle.cardFaceBack,
               backAnimatedStyle,
             ]}>
-               <Image
+            <Image
               source={IMAGES.cardBase}
               style={paymentStyle.cardImage}
-              resizeMode="cover"/>
+              resizeMode="cover"
+            />
+            <Image source={IMAGES.basePart} style={paymentStyle.basePart} />
             <Text style={paymentStyle.cardValueFlipped}>{cvv || '***'}</Text>
           </Animated.View>
         </View>
       </TouchableOpacity>
       <View style={paymentStyle.inputContainer}>
-        <Image source={IMAGES.photoIcon} style={paymentStyle.photoIcon}/>
+        <Image source={IMAGES.photoIcon} style={paymentStyle.photoIcon} />
         <View>
           <Text style={paymentStyle.cardLabel}>Name on card</Text>
           <TextInput
@@ -133,40 +128,46 @@ const Payment = props => {
         </View>
         <View>
           <Text style={paymentStyle.cardLabel}>Card number</Text>
-          <TextInput
-            style={paymentStyle.input}
-            placeholder="**** **** **** ****"
-            onChangeText={text => setCardNumber(text)}
-            maxLength={19}
-          />
+          <View style={paymentStyle.cardNumberRow}>
+            <TextInput
+              style={paymentStyle.input}
+              placeholder="**** **** **** ****"
+              onChangeText={text => setCardNumber(text)}
+              maxLength={16}
+            />
+            <Image source={IMAGES.cardSymbol} style={paymentStyle.cardSymbol} />
+          </View>
           <Text>{validateCardNumber(cardNumber) ? '' : 'Invalid'}</Text>
         </View>
         <View style={paymentStyle.detailCard}>
-        <View>
-          <Text style={paymentStyle.cardLabel}>Expiry date</Text>
-          <TextInput
-            style={paymentStyle.inputRow}
-            placeholder="02/26"
-            onChangeText={text => setExpiry(text)}
-            maxLength={5}
-          />
-          <Text>{validateExpiry(expiry) ? '' : 'Invalid'}</Text>
+          <View>
+            <Text style={paymentStyle.cardLabel}>Expiry date</Text>
+            <TextInput
+              style={paymentStyle.inputRow}
+              placeholder="02/26"
+              onChangeText={text => setExpiry(text)}
+              maxLength={5}
+            />
+            <Text>{validateExpiry(expiry) ? '' : 'Invalid'}</Text>
+          </View>
+          <View>
+            <Text style={paymentStyle.cardLabel}>CVV</Text>
+            <View style={paymentStyle.cardNumberRow}>
+              <TextInput
+                style={paymentStyle.inputRow}
+                placeholder="***"
+                onChangeText={text => setCVV(text)}
+                maxLength={3}
+              />
+              <Image source={IMAGES.cvv} style={paymentStyle.cardSymbol} />
+            </View>
+            <Text>{validateCVV(cvv) ? '' : 'Invalid'}</Text>
+          </View>
         </View>
-        <View>
-          <Text style={paymentStyle.cardLabel}>CVV</Text>
-          <TextInput
-            style={paymentStyle.inputRow}
-            placeholder="***"
-            onChangeText={text => setCVV(text)}
-            maxLength={3}
-          />
-          <Text>{validateCVV(cvv) ? '' : 'Invalid'}</Text>
-        </View>
-        </View>
-        <TouchableOpacity style={mainStyle.btn1Container}>
-        <Text style={mainStyle.btn1}>USE THIS CARD</Text>
-      </TouchableOpacity>
-      </View> 
+        <TouchableOpacity style={paymentStyle.btn1Container}>
+          <Text style={paymentStyle.btn1}>USE THIS CARD</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

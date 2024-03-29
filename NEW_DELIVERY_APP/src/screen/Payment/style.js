@@ -16,7 +16,7 @@ const paymentStyle = StyleSheet.create({
   },
   card: {
     height: windowHeight * 0.25,
-    // width:width* 0.50,
+    width: width * 0.5,
     paddingHorizontal: ResponsiveSize(170),
     borderRadius: ResponsiveSize(8),
     overflow: 'hidden',
@@ -53,12 +53,21 @@ const paymentStyle = StyleSheet.create({
     fontSize: ResponsiveSize(14),
     paddingHorizontal: ResponsiveSize(10),
   },
+  cardNumberRow: {
+    justifyContent: 'center',
+  },
+  cardSymbol: {
+    alignSelf: 'flex-end',
+    position: 'absolute',
+    right: ResponsiveSize(10),
+  },
   cardValue: {
     color: COLORS.white,
     fontSize: ResponsiveSize(26),
     fontWeight: '500',
     position: 'absolute',
-    // alignSelf: 'center',
+    alignSelf: 'center',
+    letterSpacing: ResponsiveSize(1.5),
   },
   detailCard: {
     flexDirection: 'row',
@@ -66,24 +75,27 @@ const paymentStyle = StyleSheet.create({
   },
   cardRow: {
     flexDirection: 'row',
-    justifyContent:'space-between',
-    position:'absolute',
-    bottom:ResponsiveSize(20),
-    left:ResponsiveSize(20)
+    justifyContent: 'space-between',
+    position: 'absolute',
+    bottom: ResponsiveSize(30),
+    left: ResponsiveSize(30),
+    right: ResponsiveSize(30),
   },
   cardHolder: {
     color: COLORS.white,
     fontWeight: '500',
     fontSize: ResponsiveSize(20),
+    letterSpacing: ResponsiveSize(0.48),
   },
   cardExpiry: {
     color: COLORS.white,
     fontWeight: '500',
     fontSize: ResponsiveSize(20),
   },
+
   cardValueFlipped: {
-    color: '#fff',
-    fontSize: 16,
+    color: COLORS.white,
+    fontSize: ResponsiveSize(20),
     position: 'absolute',
     transform: [{scaleX: -1}],
   },
@@ -114,6 +126,21 @@ const paymentStyle = StyleSheet.create({
     fontSize: ResponsiveSize(17),
     paddingVertical: ResponsiveSize(10),
     paddingHorizontal: ResponsiveSize(10),
+  },
+  btn1Container: {
+    backgroundColor: COLORS.button,
+    paddingHorizontal: '33%',
+    height: ResponsiveSize(56),
+    borderRadius: ResponsiveSize(8),
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginBottom: ResponsiveSize(20),
+  },
+  btn1: {
+    color: COLORS.white,
+    fontSize: ResponsiveSize(15),
+    fontWeight: '600',
+    fontFamily: FONTS.sfRegular,
   },
 });
 
