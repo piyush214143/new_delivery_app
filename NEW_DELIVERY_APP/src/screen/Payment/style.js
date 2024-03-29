@@ -16,7 +16,7 @@ const paymentStyle = StyleSheet.create({
   },
   card: {
     height: windowHeight * 0.25,
-    width: width * 0.5,
+    width: width * 0.47,
     paddingHorizontal: ResponsiveSize(170),
     borderRadius: ResponsiveSize(8),
     overflow: 'hidden',
@@ -127,14 +127,18 @@ const paymentStyle = StyleSheet.create({
     paddingVertical: ResponsiveSize(10),
     paddingHorizontal: ResponsiveSize(10),
   },
+  invalid:{
+   color:'red',
+  },
   btn1Container: {
     backgroundColor: COLORS.button,
-    paddingHorizontal: '33%',
+    width: width * 0.90,
     height: ResponsiveSize(56),
     borderRadius: ResponsiveSize(8),
-    justifyContent: 'center',
-    alignSelf: 'center',
     marginBottom: ResponsiveSize(20),
+    justifyContent:'center',
+    alignItems:'center',
+    alignSelf:'center'
   },
   btn1: {
     color: COLORS.white,
