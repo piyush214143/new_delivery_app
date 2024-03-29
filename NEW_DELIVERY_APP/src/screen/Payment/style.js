@@ -16,10 +16,10 @@ const paymentStyle = StyleSheet.create({
   },
   cardContainer: {
     height: '25%',
-    width:'100%'
+    width: '100%',
   },
   card: {
-    height: windowHeight*0.23,
+    height: windowHeight * 0.23,
     width: width * 0.47,
     paddingHorizontal: ResponsiveSize(170),
     borderRadius: ResponsiveSize(8),
@@ -47,7 +47,7 @@ const paymentStyle = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'flex-end',
     top: '10%',
-    right:'5%',
+    right: '5%',
   },
   cardFaceBack: {
     transform: [{rotateY: '180deg'}],
