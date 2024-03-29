@@ -20,14 +20,14 @@ const Payment = props => {
   const [cvv, setCVV] = useState('');
   const [isFlipped, setIsFlipped] = useState(false);
   const flipAnimation = useRef(new Animated.Value(0)).current;
-  const [submitted, setSubmitted] = useState(false); 
+  const [submitted, setSubmitted] = useState(false);
 
-   const handleCardNameChange = text => {
+  const handleCardNameChange = text => {
     setCardName(text);
   };
 
   const validateCardNumber = number => {
-    return /^\d{16}$/.test(number);
+    return /^\d{4} \d{4} \d{4} \d{4}$/.test(number);
   };
 
   const validateExpiry = date => {
@@ -41,10 +41,12 @@ const Payment = props => {
   const handleSubmit = () => {
     setSubmitted(true);
 
-    if (!cardName || 
-      !validateCardNumber(cardNumber) || 
-      !validateExpiry(expiry) || 
-      !validateCVV(cvv)) {
+    if (
+      !cardName ||
+      !validateCardNumber(cardNumber) ||
+      !validateExpiry(expiry) ||
+      !validateCVV(cvv)
+    ) {
       return;
     }
   };
@@ -141,7 +143,9 @@ const Payment = props => {
             onChangeText={handleCardNameChange}
             maxLength={35}
           />
-           {submitted && !cardName && <Text style={paymentStyle.invalid}>*Invalid</Text>}
+          {submitted && !cardName && (
+            <Text style={paymentStyle.invalid}>*Invalid</Text>
+          )}
         </View>
         <View>
           <Text style={paymentStyle.cardLabel}>Card number</Text>
@@ -150,11 +154,13 @@ const Payment = props => {
               style={paymentStyle.input}
               placeholder="**** **** **** ****"
               onChangeText={text => setCardNumber(text)}
-              maxLength={16}
+              maxLength={19}
             />
             <Image source={IMAGES.cardSymbol} style={paymentStyle.cardSymbol} />
           </View>
-         {submitted && !validateCardNumber(cardNumber) && <Text style={paymentStyle.invalid}>*Invalid</Text>}
+          {submitted && !validateCardNumber(cardNumber) && (
+            <Text style={paymentStyle.invalid}>*Invalid</Text>
+          )}
         </View>
         <View style={paymentStyle.detailCard}>
           <View>
@@ -165,7 +171,9 @@ const Payment = props => {
               onChangeText={text => setExpiry(text)}
               maxLength={5}
             />
-            {submitted && !validateExpiry(expiry) && <Text style={paymentStyle.invalid}>*Invalid</Text>}
+            {submitted && !validateExpiry(expiry) && (
+              <Text style={paymentStyle.invalid}>*Invalid</Text>
+            )}
           </View>
           <View>
             <Text style={paymentStyle.cardLabel}>CVV</Text>
@@ -178,7 +186,9 @@ const Payment = props => {
               />
               <Image source={IMAGES.cvv} style={paymentStyle.cardSymbol} />
             </View>
-             {submitted && !validateCVV(cvv) && <Text style={paymentStyle.invalid}>*Invalid</Text>}
+            {submitted && !validateCVV(cvv) && (
+              <Text style={paymentStyle.invalid}>*Invalid</Text>
+            )}
           </View>
         </View>
         <TouchableOpacity
