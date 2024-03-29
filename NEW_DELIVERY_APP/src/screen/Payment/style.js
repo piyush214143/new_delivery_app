@@ -42,6 +42,8 @@ const paymentStyle = StyleSheet.create({
   basePart: {
     position: 'absolute',
     alignSelf: 'flex-end',
+    transform: [{scaleX: -1}],
+    left:0
   },
   mcSymbol: {
     position: 'absolute',
@@ -50,7 +52,7 @@ const paymentStyle = StyleSheet.create({
     right: '5%',
   },
   cardFaceBack: {
-    transform: [{rotateY: '180deg'}],
+    transform: [{rotateY: '180deg'}]
   },
   cardLabel: {
     color: COLORS.para,
@@ -102,6 +104,7 @@ const paymentStyle = StyleSheet.create({
     fontSize: ResponsiveSize(20),
     position: 'absolute',
     transform: [{scaleX: -1}],
+    left:'10%'
   },
   inputContainer: {
     flex: 1,
