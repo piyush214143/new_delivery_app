@@ -1,11 +1,10 @@
-import {React, useState} from 'react';
-import {View, Image, Text, FlatList, TouchableOpacity} from 'react-native';
+import {React, useState, useEffect} from 'react';
+import {View, Image, Text, FlatList, TouchableOpacity,BackHandler, Alert} from 'react-native';
 import categoryStyle from './style';
 import Header from '../../common/header';
 import {IMAGES} from '../../utils/constants';
 
 const Categories = props => {
-  
   const handleCard = () => {
     props.navigation.navigate('Card');
   };
@@ -63,9 +62,35 @@ const Categories = props => {
     </View>
   );
 
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert('Hold on!', 'Are you sure you want to  go back?', [
+        {
+          text: 'Cancel',
+          onPress: () => null,
+          style: 'cancel',
+        },
+        {text: 'YES', onPress: () => BackHandler.exitApp()},
+      ]);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, []);
+
   return (
     <View style={categoryStyle.container}>
-      <Header heading={'Categories'} value={text} onChangeText={onChangeText} />
+      <Header
+        heading={'Categories'}
+        back={() => props.navigation.goBack('')}
+        value={text}
+        onChangeText={onChangeText}
+      />
       <FlatList
         data={categoriesData}
         showsVerticalScrollIndicator={false}

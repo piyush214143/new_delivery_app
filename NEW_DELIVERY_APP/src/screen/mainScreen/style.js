@@ -10,6 +10,9 @@ const mainStyle = StyleSheet.create({
     backgroundColor: COLORS.background,
     height: windowHeight,
   },
+  background:{
+   alignSelf:'flex-end'
+  },
   logoContainer: {
     width: ResponsiveSize(63),
     height: ResponsiveSize(63),
@@ -65,10 +68,11 @@ const mainStyle = StyleSheet.create({
   },
   btn1Container: {
     backgroundColor: COLORS.button,
-    paddingHorizontal: '30%',
+    paddingHorizontal: '33%',
     height: ResponsiveSize(56),
     borderRadius: ResponsiveSize(8),
     justifyContent: 'center',
+    alignSelf:'center',
   },
   btn1: {
     color: COLORS.white,

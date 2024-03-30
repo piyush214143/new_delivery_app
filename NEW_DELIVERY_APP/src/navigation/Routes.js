@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image} from 'react-native';
+import {Image, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
@@ -10,19 +10,18 @@ import Profile from '../screen/Profile';
 import {IMAGES} from '../utils/constants';
 import Card from '../screen/Card';
 import ItemProduct from '../screen/Item';
+import Payment from '../screen/Payment';
+
+const CustomTabBarBadge = ({image}) => {
+  return (
+    <View>
+      <Image source={image} style={{width: 20, height: 20}} />
+    </View>
+  );
+};
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-
-export const MainStack = () => (
-  <Stack.Navigator>
-    <Stack.Screen
-      options={{headerShown: false}}
-      name="MainScreen"
-      component={MainScreen}
-    />
-  </Stack.Navigator>
-);
 
 export const TabNav = () => (
   <Tab.Navigator
@@ -52,10 +51,15 @@ export const TabNav = () => (
       component={Categories}
     />
     <Tab.Screen
-      options={{headerShown: false}}
+      options={{
+        headerShown: false,
+        tabBarBadge: <CustomTabBarBadge image={IMAGES.tabBarBadge} />,
+        tabBarBadgeStyle: {backgroundColor: 'white'},
+      }}
       name="Checkout"
       component={Checkout}
     />
+
     <Tab.Screen
       options={{headerShown: false}}
       name="Profile"
@@ -64,22 +68,19 @@ export const TabNav = () => (
   </Tab.Navigator>
 );
 
-const Routes = ({switchToTabs}) => (
+const Routes = () => (
   <NavigationContainer>
     <Stack.Navigator>
-      {switchToTabs ? (
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="TabNav"
-          component={TabNav}
-        />
-      ) : (
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="MainStack"
-          component={MainStack}
-        />
-      )}
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="MainScreen"
+        component={MainScreen}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="TabNav"
+        component={TabNav}
+      />
       <Stack.Screen
         options={{headerShown: false}}
         name="Card"
@@ -89,6 +90,11 @@ const Routes = ({switchToTabs}) => (
         options={{headerShown: false}}
         name="ItemProduct"
         component={ItemProduct}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="Payment"
+        component={Payment}
       />
     </Stack.Navigator>
   </NavigationContainer>
