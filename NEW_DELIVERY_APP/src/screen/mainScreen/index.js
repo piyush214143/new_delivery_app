@@ -4,6 +4,7 @@ import mainStyle from './style';
 import {IMAGES} from '../../utils/constants';
 
 const MainScreen = props => {
+
   return (
     <View style={mainStyle.container}>
       <Image source={IMAGES.background} style={mainStyle.background} />
