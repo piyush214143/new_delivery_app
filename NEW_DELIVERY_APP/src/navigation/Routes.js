@@ -3,7 +3,7 @@ import {Image, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
-import MainScreen from '../screen/MainScreen';
+import MainScreen from '../screen/mainScreen';
 import Categories from '../screen/Categories';
 import Checkout from '../screen/Checkout';
 import Profile from '../screen/Profile';

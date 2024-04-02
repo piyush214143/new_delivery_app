@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Image, View, Text, TouchableOpacity} from 'react-native';
 import mainStyle from './style';
 import {IMAGES} from '../../utils/constants';
+import SplashScreen from 'react-native-splash-screen';
 
 const MainScreen = props => {
+ useEffect(() => {
+    SplashScreen.hide();
+  }, []);
 
   return (
     <View style={mainStyle.container}>
