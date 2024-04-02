@@ -12,6 +12,7 @@ const cardStyle = StyleSheet.create({
     height: windowHeight,
     flexDirection: 'column',
     padding: ResponsiveSize(20),
+    paddingTop:ResponsiveSize(40)
   },
   bGImage: {
     position: 'absolute',
@@ -31,6 +32,8 @@ const cardStyle = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     flex: 1,
+    left:0,
+    right:0,
   },
   image: {
     alignSelf: 'center',
@@ -85,6 +88,8 @@ const cardStyle = StyleSheet.create({
     paddingVertical: ResponsiveSize(10),
     borderRadius: ResponsiveSize(8),
     marginRight: ResponsiveSize(15),
+    borderWidth:1,
+    borderColor:COLORS.border
   },
   icon: {
     width: ResponsiveSize(20),
