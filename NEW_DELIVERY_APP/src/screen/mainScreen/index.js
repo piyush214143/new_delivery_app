@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Image, View, Text, TouchableOpacity} from 'react-native';
+import {Image, View, Text, TouchableOpacity,ScrollView} from 'react-native';
 import mainStyle from './style';
 import {IMAGES} from '../../utils/constants';
 import SplashScreen from 'react-native-splash-screen';
@@ -10,6 +10,7 @@ const MainScreen = props => {
   }, []);
 
   return (
+    <ScrollView contentContainerStyle={{flexGrow: 1}}>
     <View style={mainStyle.container}>
       <Image source={IMAGES.background} style={mainStyle.background} />
       <View style={mainStyle.logoContainer}>
@@ -34,6 +35,7 @@ const MainScreen = props => {
         </TouchableOpacity>
       </View>
     </View>
+    </ScrollView>
   );
 };
 

@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import {Image, View, Text, TouchableOpacity, Dimensions} from 'react-native';
+import {Image, View, Text, TouchableOpacity, Dimensions,ScrollView} from 'react-native';
 import itemStyle from './style';
 import {IMAGES, COLORS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
@@ -21,6 +21,7 @@ const ItemProduct = props => {
   const isSelected = selectedItem;
 
   return (
+    <ScrollView contentContainerStyle={{flexGrow: 1}}>
     <View style={itemStyle.container}>
       <SliderBox
         images={images}
@@ -108,6 +109,7 @@ const ItemProduct = props => {
         </View>
       </View>
     </View>
+    </ScrollView>
   );
 };
 
