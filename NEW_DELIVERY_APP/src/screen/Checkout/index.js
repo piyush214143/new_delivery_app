@@ -121,7 +121,7 @@ const Checkout = (props) => {
             <TouchableOpacity
               style={checkoutStyle.cardDetails}
               onPress={() => handleOptionSelect('By Drone')}>
-              <Image source={IMAGES.drone} />
+              <Image source={IMAGES.drone}/>
               <Text
                 style={[
                   checkoutStyle.DetailsText,

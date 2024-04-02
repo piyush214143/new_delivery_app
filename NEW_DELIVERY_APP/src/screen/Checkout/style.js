@@ -56,7 +56,7 @@ const checkoutStyle = StyleSheet.create({
     flexDirection:'row',
     alignItems: 'center',
     justifyContent:'space-between',
-    paddingBottom:'2%'
+    paddingBottom:'7%'
   },
   delivery: {
    justifyContent:'space-evenly'
@@ -79,7 +79,6 @@ const checkoutStyle = StyleSheet.create({
   tick: {
     justifyContent:'flex-end' 
   },
-
 });
 
 export default checkoutStyle;
