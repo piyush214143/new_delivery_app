@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Easing,
   Image,
+  ScrollView
 } from 'react-native';
 import paymentStyle from './style';
 import categoryStyle from '../Categories/style';
@@ -80,6 +81,7 @@ const Payment = props => {
   };
 
   return (
+    <ScrollView contentContainerStyle={{flexGrow: 1}}>
     <View style={paymentStyle.container}>
       <View style={categoryStyle.header}>
         <TouchableOpacity onPress={() => props.navigation.goBack('')}>
@@ -204,6 +206,7 @@ const Payment = props => {
         </TouchableOpacity>
       </View>
     </View>
+    </ScrollView>
   );
 };
 
