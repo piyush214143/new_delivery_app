@@ -85,6 +85,8 @@ const cardStyle = StyleSheet.create({
     paddingVertical: ResponsiveSize(10),
     borderRadius: ResponsiveSize(8),
     marginRight: ResponsiveSize(15),
+    borderWidth:1,
+    borderColor:COLORS.border
   },
   icon: {
     width: ResponsiveSize(20),
