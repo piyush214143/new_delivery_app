@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import {Image, View, Text, TouchableOpacity} from 'react-native';
+import {Image, View, Text, TouchableOpacity,ScrollView} from 'react-native';
 import checkoutStyle from './style';
 import {IMAGES} from '../../utils/constants';
 import DeliveryOptionsComponent from '../../common/deliveryView';
@@ -18,6 +18,7 @@ const Checkout = (props) => {
   };
 
   return (
+     <ScrollView contentContainerStyle={{flexGrow: 1}}>
     <View style={checkoutStyle.container}>
       <View style={checkoutStyle.checkoutHeader}>
         <Image source={IMAGES.arrow} style={checkoutStyle.arrow} />
@@ -59,6 +60,7 @@ const Checkout = (props) => {
         </View>
       </View>
     </View>
+    </ScrollView>
   );
 };
 

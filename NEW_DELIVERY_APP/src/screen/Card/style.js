@@ -51,6 +51,7 @@ const cardStyle = StyleSheet.create({
     justifyContent: 'space-between',
     paddingBottom: '3%',
     paddingTop: '5%',
+    flex:1
   },
   productImage: {
     borderRadius: ResponsiveSize(8),
