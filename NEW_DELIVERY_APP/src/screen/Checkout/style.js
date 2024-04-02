@@ -63,15 +63,14 @@ const checkoutStyle = StyleSheet.create({
     alignItems: 'center',
   },
   DeliveryDetails:{
-    flexDirection: 'row',
-    
+    flexDirection: 'row',  
   },
   DetailsText: {
     fontSize: ResponsiveSize(17),
     color: COLORS.para,
     fontWeight: '400',
     fontFamily: FONTS.sfRegular,
-    paddingHorizontal: '10%',
+    paddingHorizontal: ResponsiveSize(50),
     lineHeight:ResponsiveSize(25.5)
   },
   tick: {

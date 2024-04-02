@@ -53,7 +53,8 @@ const categoryStyle = StyleSheet.create({
     paddingRight: CARD_PADDING_HORIZONTAL,
     paddingTop: CARD_MARGIN,
     paddingBottom: CARD_MARGIN,
-    flex:1
+    flex:1,  // need to align
+    alignContent:'center'
   },
   card: {
     borderWidth: 1,
