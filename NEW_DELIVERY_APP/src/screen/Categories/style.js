@@ -42,6 +42,7 @@ const categoryStyle = StyleSheet.create({
     borderRadius: ResponsiveSize(100),
     borderWidth: ResponsiveSize(1),
     borderColor: COLORS.border,
+    paddingHorizontal:ResponsiveSize(10)
   },
   search: {
     width: '80%',

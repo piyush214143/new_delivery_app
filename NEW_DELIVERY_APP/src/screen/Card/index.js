@@ -10,13 +10,13 @@ const Card =(props) => {
 
   const vegetables1 = [
     {id: 1, name: 'Carrot', num: 43},
-    {id: 2, name: 'Tomato', num: 21},
+    {id: 2, name: 'Potatoes and carrots', num: 21},
     {id: 3, name: 'Broccoli', num: 33},
     {id: 4, name: 'Spinach', num: 45},
-    {id: 5, name: 'Bell Pepper', num: 13},
+    {id: 5, name: 'Сucumbers and tomatoes', num: 13},
   ];
   const vegetables2 = [
-    {id: 1, name: 'Carrot', num: 43},
+    {id: 1, name: 'Oinons and garlic', num: 43},
     {id: 2, name: 'Tomato', num: 21},
     {id: 3, name: 'Broccoli', num: 33},
     {id: 4, name: 'Spinach', num: 45},

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, Text, TextInput,TouchableOpacity} from 'react-native';
 import categoryStyle from '../screen/Categories/style';
-import { IMAGES } from '../utils/constants';
+import { COLORS, IMAGES } from '../utils/constants';
 
 const Header = ({heading,value,onChangeText,back,search}) => {
   return (
@@ -19,6 +19,7 @@ const Header = ({heading,value,onChangeText,back,search}) => {
             onChangeText={onChangeText}
             value={value}
             placeholder="Search"
+            placeholderTextColor={COLORS.para}
             keyboardType="web-search"
             maxLength={40}
           />

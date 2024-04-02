@@ -1,51 +1,60 @@
-import React, {useState} from 'react';
-import {View, Text, FlatList, TouchableOpacity, Image} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import cardStyle from '../screen/Card/style';
-import {COLORS, IMAGES} from '../utils/constants';
+import { COLORS, IMAGES } from '../utils/constants';
 import ResponsiveSize from '../utils/responsiveSize';
 
-const Product = ({products,details}) => {
-  const [selectedItem, setSelectedItem] = useState();
+const Product = ({ products, details }) => {
+  const [selectedItems, setSelectedItems] = useState([]);
 
-  const handlePress = itemid => {
-    setSelectedItem(itemid === selectedItem ? null : itemid);
+  const handlePress = (index) => {
+    const newSelectedItems = [...selectedItems];
+    if (newSelectedItems.includes(index)) {
+      newSelectedItems.splice(newSelectedItems.indexOf(index), 1);
+    } else {
+      newSelectedItems.push(index);
+    }
+    setSelectedItems(newSelectedItems);
   };
 
-  const renderItem = ({item}) => {
-    const isSelected = selectedItem === item.id;
+  const renderItem = ({ item, index }) => {
+    const isSelected = selectedItems.includes(index);
     return (
-      <View style={cardStyle.productContainer}>
+      <View style={[cardStyle.productContainer, isSelected && cardStyle.selectedItem]}>
         <TouchableOpacity onPress={details} style={cardStyle.imageContainer}>
           <Image source={item.image} style={cardStyle.productImage} />
         </TouchableOpacity>
         <View style={cardStyle.detailsContainer}>
           <Text style={cardStyle.productName}>{item.productName}</Text>
-          <Text style={cardStyle.productPrice}>
-            {item.productPrice}
-            <Text style={{color: COLORS.para, fontSize: ResponsiveSize(16)}}>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={cardStyle.productPrice}>
+              {item.productPrice}
+            </Text>
+            <Text style={cardStyle.pieceText}>
               € / piece
             </Text>
-          </Text>
+          </View>
           <View style={cardStyle.iconsContainer}>
             <TouchableOpacity
-              onPress={() => handlePress(item.id)}
-              style={[
+              onPress={() => handlePress(index)}
+             style={[
                 cardStyle.iconSection,
                 {backgroundColor: isSelected ? COLORS.button : COLORS.white},
               ]}>
-              <Image
+               <Image
                 source={isSelected ? IMAGES.wish : IMAGES.wishclr}
                 style={cardStyle.icon}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => handlePress(item.id)}
+              onPress={() => handlePress(index)}
               style={[
                 cardStyle.iconSection,
-                {backgroundColor: !isSelected ? COLORS.button : COLORS.white},
+                // !isSelected ? cardStyle.selectedIcon : cardStyle.unselectedIcon,
+                 {backgroundColor: !isSelected ? COLORS.button : COLORS.white},
               ]}>
               <Image
-                source={isSelected ? IMAGES.shoppingCart : IMAGES.cart}
+                source={!isSelected ? IMAGES.cart : IMAGES.shoppingCart}
                 style={cardStyle.icon}
               />
             </TouchableOpacity>
@@ -59,7 +68,7 @@ const Product = ({products,details}) => {
     <FlatList
       data={products}
       renderItem={renderItem}
-      keyExtractor={item => item.id}
+      keyExtractor={(item, index) => index.toString()} 
       showsVerticalScrollIndicator={false}
     />
   );
