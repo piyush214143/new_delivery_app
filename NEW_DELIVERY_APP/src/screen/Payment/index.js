@@ -20,6 +20,7 @@ const Payment = props => {
   const [isFlipped, setIsFlipped] = useState(false);
   const flipAnimation = useRef(new Animated.Value(0)).current;
   const [submitted, setSubmitted] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleCardNameChange = text => {
     setCardName(text);
@@ -140,7 +141,7 @@ const Payment = props => {
           <TextInput
             style={paymentStyle.input}
             placeholder="Vaishali Yadav"
-            placeholderTextColor={COLORS.border}
+            placeholderTextColor={COLORS.dGrey}
             onChangeText={handleCardNameChange}
             maxLength={35}
           />
@@ -153,10 +154,12 @@ const Payment = props => {
           <View style={paymentStyle.cardNumberRow}>
             <TextInput
               style={paymentStyle.input}
-              placeholder="**** **** **** ****"
+              placeholderTextColor={COLORS.dGrey}
               onChangeText={text => setCardNumber(text)}
+              value={cardNumber}
               maxLength={19}
             />
+           {cardNumber.length === 0 &&  <Text style={paymentStyle.placeholder}>************</Text>}
             <Image source={IMAGES.cardSymbol} style={paymentStyle.cardSymbol} />
           </View>
           {submitted && !validateCardNumber(cardNumber) && (
@@ -169,6 +172,7 @@ const Payment = props => {
             <TextInput
               style={paymentStyle.inputRow}
               placeholder="02/26"
+              placeholderTextColor={COLORS.dGrey}
               onChangeText={text => setExpiry(text)}
               maxLength={5}
             />
@@ -182,6 +186,7 @@ const Payment = props => {
               <TextInput
                 style={paymentStyle.inputRow}
                 placeholder="***"
+                placeholderTextColor={COLORS.dGrey}
                 onChangeText={text => setCVV(text)}
                 maxLength={3}
               />

@@ -47,6 +47,7 @@ export const FONTS = {
 export const COLORS = {
   background: '#A259FF',
   grey: '#F6F5F5',
+  dGrey:'#808080',
   button: '#0BCE83',
   white: '#FFFFFF',
   heading: '#2D0C57',

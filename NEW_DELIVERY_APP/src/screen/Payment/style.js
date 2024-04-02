@@ -57,7 +57,7 @@ const paymentStyle = StyleSheet.create({
   cardLabel: {
     color: COLORS.para,
     fontSize: ResponsiveSize(14),
-    paddingHorizontal: ResponsiveSize(10),
+    paddingVertical:ResponsiveSize(5)
   },
   cardNumberRow: {
     justifyContent: 'center',
@@ -133,6 +133,12 @@ const paymentStyle = StyleSheet.create({
     fontSize: ResponsiveSize(17),
     paddingVertical: ResponsiveSize(10),
     paddingHorizontal: ResponsiveSize(10),
+  },
+  placeholder:{
+   position:'absolute',
+   paddingHorizontal:ResponsiveSize(10),
+   paddingTop:ResponsiveSize(5),
+   color:COLORS.dGrey
   },
   invalid: {
     color: 'red',
