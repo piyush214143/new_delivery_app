@@ -67,7 +67,7 @@ const categoryStyle = StyleSheet.create({
   image: {
     resizeMode: 'cover',
     width: '100%',
-    // height: '87%',
+    height: '87%',
   },
   name: {
     fontSize: ResponsiveSize(18),
