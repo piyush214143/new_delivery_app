@@ -46,7 +46,15 @@ const ItemProduct = props => {
       <View style={itemStyle.bottom}>
         <Text style={itemStyle.itemName}>Boston Lettuce</Text>
         <View>
+          <View style={{flexDirection:'row',alignItems:'center',paddingBottom: '5%',}}>
           <Text style={itemStyle.productPrice}>
+            1.10
+          </Text>
+          <Text style={itemStyle.pieceText}>
+            € / piece
+          </Text>
+          </View>
+          {/* <Text style={itemStyle.productPrice}>
             1.10
             <Text
               style={{
@@ -56,7 +64,7 @@ const ItemProduct = props => {
               }}>
               € / piece
             </Text>
-          </Text>
+          </Text> */}
           <Text style={itemStyle.quantity}>~ 150 gr / piece</Text>
         </View>
         <Text style={itemStyle.place}>Spain</Text>

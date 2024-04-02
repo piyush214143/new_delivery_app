@@ -20,12 +20,14 @@ const Product = ({products,details}) => {
         </TouchableOpacity>
         <View style={cardStyle.detailsContainer}>
           <Text style={cardStyle.productName}>{item.productName}</Text>
+          <View style={{flexDirection:'row'}}>
           <Text style={cardStyle.productPrice}>
             {item.productPrice}
-            <Text style={{color: COLORS.para, fontSize: ResponsiveSize(16)}}>
+          </Text>
+          <Text style={cardStyle.pieceText}>
               € / piece
             </Text>
-          </Text>
+          </View>
           <View style={cardStyle.iconsContainer}>
             <TouchableOpacity
               onPress={() => handlePress(item.id)}

@@ -32,8 +32,16 @@ const cardStyle = StyleSheet.create({
     justifyContent: 'space-evenly',
     flex: 1,
   },
+  image: {
+    alignSelf: 'center',
+  },
   name: {
     fontSize: ResponsiveSize(16),
+    paddingLeft: ResponsiveSize(12),
+    paddingRight: ResponsiveSize(2),
+  },
+  items: {
+    alignSelf: 'center',
   },
   productContainer: {
     flexDirection: 'row',
@@ -61,6 +69,12 @@ const cardStyle = StyleSheet.create({
     color: COLORS.heading,
     fontWeight: '700',
     fontSize: ResponsiveSize(22),
+  },
+  pieceText: {
+    color: COLORS.para,
+    fontSize: ResponsiveSize(16),
+    alignSelf:'center',
+    paddingHorizontal:ResponsiveSize(5)
   },
   iconsContainer: {
     flexDirection: 'row',

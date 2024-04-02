@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { Text, FlatList, TouchableOpacity, Image} from 'react-native';
+import { View,Text, FlatList, TouchableOpacity, Image} from 'react-native';
 import cardStyle from '../screen/Card/style';
 import {COLORS, IMAGES} from '../utils/constants';
 
@@ -18,6 +18,7 @@ const VegetablesList = ({vegetables}) => {
         ]}>
         {isSelected ? (
           <>
+          <View style={{flexDirection:'row', justifyContent:'space-evenly',alignContent:'center'}}>
             <Image source={IMAGES.tick} style={cardStyle.image} />
             <Text style={[cardStyle.name, {color: COLORS.darkPurple}]}>
               {item.name}
@@ -25,6 +26,7 @@ const VegetablesList = ({vegetables}) => {
             <Text style={[cardStyle.items, {color: COLORS.darkPurple}]}>
               ({item.num})
             </Text>
+            </View>
           </>
         ) : (
           <>
