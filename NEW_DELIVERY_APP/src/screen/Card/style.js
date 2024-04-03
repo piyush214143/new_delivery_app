@@ -9,10 +9,11 @@ const {width} = Dimensions.get('window');
 const cardStyle = StyleSheet.create({
   container: {
     backgroundColor: COLORS.grey,
-    height: windowHeight,
+    // height: windowHeight,
     flexDirection: 'column',
     padding: ResponsiveSize(20),
-    paddingTop:ResponsiveSize(40)
+    paddingTop:ResponsiveSize(40),
+    flex:1
   },
   bGImage: {
     position: 'absolute',
@@ -31,9 +32,11 @@ const cardStyle = StyleSheet.create({
   sectionContainer: {
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    flex: 1,
     left:0,
     right:0,
+    height:ResponsiveSize(100)
+  },
+  cardContainer:{
   },
   image: {
     alignSelf: 'center',

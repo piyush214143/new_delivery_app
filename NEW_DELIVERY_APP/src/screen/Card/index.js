@@ -14,6 +14,7 @@ const Card =(props) => {
     {id: 3, name: 'Broccoli', num: 33},
     {id: 4, name: 'Spinach', num: 45},
     {id: 5, name: 'Сucumbers and tomatoes', num: 13},
+    {id: 6, name: 'Oinons and garlic', num: 45},
   ];
   const vegetables2 = [
     {id: 1, name: 'Oinons and garlic', num: 43},
@@ -21,6 +22,7 @@ const Card =(props) => {
     {id: 3, name: 'Broccoli', num: 33},
     {id: 4, name: 'Spinach', num: 45},
     {id: 5, name: 'Bell Pepper', num: 13},
+    {id: 6, name: 'Potatoes and carrots', num: 21},
   ];
 
   const products = [
@@ -51,7 +53,9 @@ const Card =(props) => {
       <View style={cardStyle.sectionContainer}>
         <VegetablesList vegetables={vegetables1} />
         <VegetablesList vegetables={vegetables2} />
-        <Product products={products} details={()=> props.navigation.navigate('ItemProduct')} />
+      </View>
+      <View style={cardStyle.cardContainer}>
+       <Product products={products} details={()=> props.navigation.navigate('ItemProduct')} />
       </View>
     </View>
   );
