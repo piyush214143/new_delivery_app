@@ -81,7 +81,7 @@ const Payment = props => {
   };
 
   return (
-    <ScrollView contentContainerStyle={{flexGrow: 1}}>
+    <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
     <View style={paymentStyle.container}>
       <View style={categoryStyle.header}>
         <TouchableOpacity onPress={() => props.navigation.goBack('')}>

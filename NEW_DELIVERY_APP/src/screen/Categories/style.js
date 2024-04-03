@@ -22,11 +22,13 @@ const categoryStyle = StyleSheet.create({
   header: {
     flexDirection: 'column',
     justifyContent: 'space-evenly',
+    paddingTop:ResponsiveSize(20)
   },
   heading: {
     fontSize: ResponsiveSize(31),
     color: COLORS.heading,
     fontWeight: '700',
+    paddingVertical:ResponsiveSize(20)
   },
   searchContainer: {
     flexDirection: 'row',
@@ -41,6 +43,7 @@ const categoryStyle = StyleSheet.create({
   search: {
     width: '80%',
     height: ResponsiveSize(48),
+    fontSize: ResponsiveSize(17)
   },
   itemContainer: {
     flex: 1,

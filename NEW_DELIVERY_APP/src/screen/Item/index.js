@@ -21,7 +21,7 @@ const ItemProduct = props => {
   const isSelected = selectedItem;
 
   return (
-    <ScrollView contentContainerStyle={{flexGrow: 1}}>
+    <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
     <View style={itemStyle.container}>
       <View style={{height:windowHeight * 0.4}}>
       <SliderBox

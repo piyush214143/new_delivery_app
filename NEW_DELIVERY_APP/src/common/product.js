@@ -66,10 +66,10 @@ const Product = ({ products, details }) => {
 
   return (
     <FlatList
+      showsVerticalScrollIndicator={false}
       data={products}
       renderItem={renderItem}
       keyExtractor={(item, index) => index.toString()} 
-      showsVerticalScrollIndicator={false}
     />
   );
 };

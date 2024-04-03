@@ -2,6 +2,7 @@ import {React, useState} from 'react';
 import { View,Text, FlatList, TouchableOpacity, Image} from 'react-native';
 import cardStyle from '../screen/Card/style';
 import {COLORS, IMAGES} from '../utils/constants';
+import ResponsiveSize from '../utils/responsiveSize';
 
 const VegetablesList = ({vegetables}) => {
   const [selectedItem, setSelectedItem] = useState();
@@ -14,7 +15,7 @@ const VegetablesList = ({vegetables}) => {
         style={[
           cardStyle.itemContainer,
           {backgroundColor: isSelected ? COLORS.list : COLORS.white},
-          {width: item.name.length * 10 + 100},
+          {width: item.name.length * 10 + ResponsiveSize(100)},
         ]}>
         {isSelected ? (
           <>
@@ -30,12 +31,14 @@ const VegetablesList = ({vegetables}) => {
           </>
         ) : (
           <>
+           <View style={{flexDirection:'row', justifyContent:'space-evenly',alignContent:'center'}}>
             <Text style={[cardStyle.name, {color: COLORS.para}]}>
               {item.name}
             </Text>
             <Text style={[cardStyle.items, {color: COLORS.para}]}>
               ({item.num})
             </Text>
+             </View>
           </>
         )}
       </TouchableOpacity>

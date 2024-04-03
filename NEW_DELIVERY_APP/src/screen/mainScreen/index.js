@@ -10,7 +10,7 @@ const MainScreen = props => {
   }, []);
 
   return (
-    <ScrollView contentContainerStyle={{flexGrow: 1}}>
+    <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
     <View style={mainStyle.container}>
       <Image source={IMAGES.background} style={mainStyle.background} />
       <View style={mainStyle.logoContainer}>

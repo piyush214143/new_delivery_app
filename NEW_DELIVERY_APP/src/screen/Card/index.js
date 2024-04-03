@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, View,ScrollView} from 'react-native';
 import cardStyle from './style';
 import Header from '../../common/header';
 import VegetablesList from '../../common/vegetablesList';
@@ -46,17 +46,20 @@ const Card =(props) => {
     },
   ];
 
-  return (
+  return ( 
     <View style={cardStyle.container}>
       <Image source={IMAGES.bgImage} style={cardStyle.bGImage} />
       <Header heading={'Vegetables'} back={() => props.navigation.goBack('')} />
-      <View style={cardStyle.sectionContainer}>
+      <ScrollView contentContainerStyle={{flexGrow: 1}} 
+      showsVerticalScrollIndicator={false} >
+      <View style={cardStyle.sectionContainer} >
         <VegetablesList vegetables={vegetables1} />
         <VegetablesList vegetables={vegetables2} />
       </View>
       <View style={cardStyle.cardContainer}>
        <Product products={products} details={()=> props.navigation.navigate('ItemProduct')} />
       </View>
+      </ScrollView>
     </View>
   );
 };

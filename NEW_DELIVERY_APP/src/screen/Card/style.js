@@ -37,6 +37,8 @@ const cardStyle = StyleSheet.create({
     height:ResponsiveSize(100)
   },
   cardContainer:{
+    flex:1,
+    height:ResponsiveSize(200)
   },
   image: {
     alignSelf: 'center',
@@ -52,20 +54,19 @@ const cardStyle = StyleSheet.create({
   productContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingBottom: '3%',
-    paddingTop: '5%',
-    flex:1
+    paddingTop: ResponsiveSize(30),
+    marginRight:ResponsiveSize(80)
   },
   productImage: {
     borderRadius: ResponsiveSize(8),
-    width: width * 0.4 + ResponsiveSize(20),
-    height: windowHeight * 0.16,
+    paddingHorizontal:'35%',
+    paddingVertical:'20%'
   },
   detailsContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    paddingHorizontal: '5%',
+    right:0,
   },
   productName: {
     color: COLORS.heading,
