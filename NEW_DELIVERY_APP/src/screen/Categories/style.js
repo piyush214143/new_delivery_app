@@ -1,32 +1,24 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {COLORS, FONTS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
 
-const windowHeight = Dimensions.get('window').height;
-
-const {width} = Dimensions.get('window');
+const NUM_COLUMNS = 2;
 const CARD_MARGIN = ResponsiveSize(10);
 const CARD_PADDING_HORIZONTAL = ResponsiveSize(10);
-const NUM_COLUMNS = 2;
-const cardWidth =
-  (width - (NUM_COLUMNS + 1) * CARD_MARGIN - 2 * CARD_PADDING_HORIZONTAL) /
-  NUM_COLUMNS;
-const cardHeight = cardWidth * 1.2;
+const CARD_WIDTH_PERCENTAGE = 100; 
 
 const categoryStyle = StyleSheet.create({
   container: {
     backgroundColor: COLORS.grey,
-    height: windowHeight,
     padding: ResponsiveSize(20),
-    paddingTop:ResponsiveSize(40)
+    paddingTop: ResponsiveSize(40),
   },
   headerContainer: {
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    height: windowHeight * 0.23,
+    height:ResponsiveSize(170)
   },
   header: {
-    height: windowHeight * 0.15,
     flexDirection: 'column',
     justifyContent: 'space-evenly',
   },
@@ -43,33 +35,33 @@ const categoryStyle = StyleSheet.create({
     borderRadius: ResponsiveSize(100),
     borderWidth: ResponsiveSize(1),
     borderColor: COLORS.border,
-    paddingHorizontal:ResponsiveSize(10)
+    paddingHorizontal: ResponsiveSize(10),
   },
   search: {
     width: '80%',
     height: ResponsiveSize(48),
   },
   itemContainer: {
-    paddingRight: CARD_PADDING_HORIZONTAL,
-    paddingTop: CARD_MARGIN,
-    paddingBottom: CARD_MARGIN,
-    flex:1,  // need to align
-    alignContent:'center'
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginTop: CARD_MARGIN,
   },
   card: {
     borderWidth: 1,
     borderColor: COLORS.border,
     borderRadius: ResponsiveSize(8),
     backgroundColor: COLORS.white,
-    width: cardWidth,
-    height: cardHeight,
+    width: `${CARD_WIDTH_PERCENTAGE}%`,
+    aspectRatio: 0.8, // Adjust the aspect ratio as needed
     justifyContent: 'space-evenly',
-    bottom: '20%',
+    marginBottom: CARD_MARGIN,
   },
   image: {
     resizeMode: 'cover',
     width: '100%',
-    height: '87%',
+    // aspectRatio: 1.2, // Adjust the aspect ratio as needed
   },
   name: {
     fontSize: ResponsiveSize(18),
@@ -87,3 +79,4 @@ const categoryStyle = StyleSheet.create({
 });
 
 export default categoryStyle;
+

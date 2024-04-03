@@ -11,7 +11,7 @@ const mainStyle = StyleSheet.create({
     height: windowHeight,
   },
   background:{
-   alignSelf:'flex-end'
+   alignSelf:'flex-end',
   },
   logoContainer: {
     width: ResponsiveSize(63),
@@ -32,8 +32,7 @@ const mainStyle = StyleSheet.create({
     borderTopStartRadius: ResponsiveSize(40),
     borderTopEndRadius: ResponsiveSize(40),
     width: '100%',
-    height: windowHeight * 0.65,
-    flex: 0.65,
+    height: '70%',
     bottom: 0,
     justifyContent: 'space-evenly',
     alignItems: 'center',

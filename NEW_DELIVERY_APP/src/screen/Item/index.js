@@ -23,18 +23,19 @@ const ItemProduct = props => {
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}}>
     <View style={itemStyle.container}>
+      <View style={{height:windowHeight * 0.4}}>
       <SliderBox
         images={images}
-        sliderBoxHeight={windowHeight * 0.37}
+        sliderBoxHeight={windowHeight * 0.35}       
         dotColor="#ffffff"
         inactiveDotColor="#90A4AE"
         dotStyle={{
-          width: 10,
-          height: 10,
+          width: ResponsiveSize(10),
+          height: ResponsiveSize(10),
           borderRadius: 10 / 2,
           marginBottom: ResponsiveSize(70),
         }}
-      />
+      />     
       <TouchableOpacity
         onPress={() => props.navigation.goBack('')}
         style={{position: 'absolute',flexDirection:'row',marginLeft: ResponsiveSize(20),
@@ -44,6 +45,7 @@ const ItemProduct = props => {
         />
         <Text style={{color:COLORS.white,marginLeft:ResponsiveSize(10)}}>Back</Text>
       </TouchableOpacity>
+      </View>
       <View style={itemStyle.bottom}>
         <Text style={itemStyle.itemName}>Boston Lettuce</Text>
         <View>
@@ -55,17 +57,6 @@ const ItemProduct = props => {
             € / piece
           </Text>
           </View>
-          {/* <Text style={itemStyle.productPrice}>
-            1.10
-            <Text
-              style={{
-                color: COLORS.para,
-                fontSize: ResponsiveSize(24),
-                fontWeight: '400',
-              }}>
-              € / piece
-            </Text>
-          </Text> */}
           <Text style={itemStyle.quantity}>~ 150 gr / piece</Text>
         </View>
         <Text style={itemStyle.place}>Spain</Text>

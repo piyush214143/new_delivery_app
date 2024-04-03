@@ -8,7 +8,7 @@ const {width} = Dimensions.get('window');
 
 const itemStyle = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     position: 'relative',
   },
   bottom: {
@@ -50,7 +50,7 @@ const itemStyle = StyleSheet.create({
   description: {
     color: COLORS.para,
     fontSize: ResponsiveSize(14),
-    paddingBottom: '15%',
+    paddingBottom: ResponsiveSize(100),
     lineHeight: ResponsiveSize(25.5),
   },
   iconsContainer: {
