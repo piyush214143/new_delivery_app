@@ -5,13 +5,14 @@ import ResponsiveSize from '../../utils/responsiveSize';
 const NUM_COLUMNS = 2;
 const CARD_MARGIN = ResponsiveSize(10);
 const CARD_PADDING_HORIZONTAL = ResponsiveSize(10);
-const CARD_WIDTH_PERCENTAGE = 100; 
+const CARD_WIDTH_PERCENTAGE = 100;
 
 const categoryStyle = StyleSheet.create({
   container: {
     backgroundColor: COLORS.grey,
     padding: ResponsiveSize(20),
     paddingTop: ResponsiveSize(40),
+    flex:1
   },
   headerContainer: {
     flexDirection: 'column',
@@ -44,24 +45,26 @@ const categoryStyle = StyleSheet.create({
   itemContainer: {
     flex: 1,
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    paddingHorizontal: CARD_PADDING_HORIZONTAL,
+    paddingVertical:CARD_PADDING_HORIZONTAL,
+    // flexWrap: 'wrap',
     justifyContent: 'space-between',
-    marginTop: CARD_MARGIN,
-  },
+    marginTop: ResponsiveSize(10),
+  }, 
   card: {
     borderWidth: 1,
     borderColor: COLORS.border,
     borderRadius: ResponsiveSize(8),
     backgroundColor: COLORS.white,
     width: `${CARD_WIDTH_PERCENTAGE}%`,
-    aspectRatio: 0.8, // Adjust the aspect ratio as needed
+    aspectRatio: 0.9,
     justifyContent: 'space-evenly',
     marginBottom: CARD_MARGIN,
   },
   image: {
     resizeMode: 'cover',
     width: '100%',
-    // aspectRatio: 1.2, // Adjust the aspect ratio as needed
+    height: '87%',
   },
   name: {
     fontSize: ResponsiveSize(18),
