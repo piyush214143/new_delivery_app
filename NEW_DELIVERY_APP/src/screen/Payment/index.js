@@ -36,7 +36,7 @@ const Payment = (props) => {
     try {
       if (Platform.OS === 'android') {
         const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.CAMERA,
+          PermissionsAndroid?.PERMISSIONS?.CAMERA,
           {
             title: 'Camera Permission',
             message: 'App needs access to your camera to scan cards.',
@@ -52,7 +52,7 @@ const Payment = (props) => {
         }
       } else if (Platform.OS === 'ios') {
         const granted = await PermissionsIOS.request(
-          PermissionsIOS.PERMISSIONS.CAMERA
+          PermissionsIOS?.PERMISSIONS?.CAMERA
         );
         if (granted === 'granted') {
           setCameraPermissionGranted(true);
