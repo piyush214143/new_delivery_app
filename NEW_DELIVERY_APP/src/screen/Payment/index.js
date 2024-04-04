@@ -10,6 +10,7 @@ import {
   ScrollView,
   Platform,
   PermissionsAndroid,
+  PermissionsIOS
 } from 'react-native';
 import paymentStyle from './style';
 import categoryStyle from '../Categories/style';
