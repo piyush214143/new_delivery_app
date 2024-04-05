@@ -1,12 +1,12 @@
 import {React, useState} from 'react';
-import {Image, View, Text, TouchableOpacity, Dimensions,ScrollView} from 'react-native';
+import {Image, View, Text, TouchableOpacity,ScrollView} from 'react-native';
 import itemStyle from './style';
 import {IMAGES, COLORS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
 import {SliderBox} from 'react-native-image-slider-box';
 
 const ItemProduct = props => {
-  const windowHeight = Dimensions.get('window').height;
+
   const [selectedItem, setSelectedItem] = useState();
   const [images, setImages] = useState([
     IMAGES.itemVeg,
@@ -23,22 +23,23 @@ const ItemProduct = props => {
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
     <View style={itemStyle.container}>
-      <View style={{height:windowHeight * 0.4}}>
+      <View style={{height:'38%'}}>
       <SliderBox
         images={images}
-        sliderBoxHeight={windowHeight * 0.35}       
+        resizeMode={'cover'}
+        sliderBoxHeight={'100%'}   
         dotColor="#ffffff"
         inactiveDotColor="#90A4AE"
         dotStyle={{
           width: ResponsiveSize(10),
           height: ResponsiveSize(10),
           borderRadius: 10 / 2,
-          marginBottom: ResponsiveSize(70),
+          marginBottom: ResponsiveSize(90),
         }}
       />     
       <TouchableOpacity
         onPress={() => props.navigation.goBack('')}
-        style={{position: 'absolute',flexDirection:'row',marginLeft: ResponsiveSize(20),
+        style={{position: 'absolute',flexDirection:'row',marginLeft: ResponsiveSize(20),alignItems:'center',
         marginTop: ResponsiveSize(60),}}>
         <Image
           source={IMAGES.arrow}
@@ -48,8 +49,8 @@ const ItemProduct = props => {
       </View>
       <View style={itemStyle.bottom}>
         <Text style={itemStyle.itemName}>Boston Lettuce</Text>
-        <View>
-          <View style={{flexDirection:'row',alignItems:'center',paddingBottom: '5%',}}>
+        <View style={{justifyContent:'space-around'}}>
+          <View style={{flexDirection:'row',alignItems:'center'}}>
           <Text style={itemStyle.productPrice}>
             1.10
           </Text>
@@ -67,6 +68,7 @@ const ItemProduct = props => {
           other kinds of food, such as soups, sandwiches and wraps; it can also
           be grilled.
         </Text>
+        </View>
         <View style={itemStyle.iconsContainer}>
           <TouchableOpacity
             onPress={() => handlePress()}
@@ -98,7 +100,7 @@ const ItemProduct = props => {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
+      
     </View>
     </ScrollView>
   );
