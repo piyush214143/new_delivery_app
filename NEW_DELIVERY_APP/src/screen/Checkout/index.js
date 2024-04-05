@@ -18,7 +18,7 @@ const Checkout = (props) => {
   };
 
   return (
-     <ScrollView contentContainerStyle={{flexGrow: 1}}>
+     <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
     <View style={checkoutStyle.container}>
       <View style={checkoutStyle.checkoutHeader}>
         <Image source={IMAGES.arrow} style={checkoutStyle.arrow} />

@@ -50,16 +50,17 @@ const Payment = (props) => {
         } else {
           setCameraPermissionGranted(false);
         }
-      } else if (Platform.OS === 'ios') {
-        const granted = await PermissionsIOS.request(
-          PermissionsIOS?.PERMISSIONS?.CAMERA
-        );
-        if (granted === 'granted') {
-          setCameraPermissionGranted(true);
-        } else {
-          setCameraPermissionGranted(false);
-        }
-      }
+      } 
+      // else if (Platform.OS === 'ios') {
+      //   const granted = await PermissionsIOS.request(
+      //     PermissionsIOS?.PERMISSIONS?.CAMERA
+      //   );
+      //   if (granted === 'granted') {
+      //     setCameraPermissionGranted(true);
+      //   } else {
+      //     setCameraPermissionGranted(false);
+      //   }
+      // }
     } catch (err) {
       console.warn(err);
       setCameraPermissionGranted(false);
@@ -74,9 +75,47 @@ const Payment = (props) => {
     }
   };
 
-  const handleCardNameChange = (text) => {
-    setCardName(text);
+  const formatCreditCardNumber = (value) => {
+    let formattedValue = value.replace(/\D/g, '');
+    formattedValue = formattedValue.replace(/(\d{4})/g, '$1 ').trim();
+    return formattedValue.slice(0, 19);
   };
+
+   const handleCardNumberChange = (value) => {
+    setCardNumber(formatCreditCardNumber(value));
+  };
+
+  const formatCardName = (name) => {
+    const lowercaseName = name.toLowerCase();
+    const words = lowercaseName.split(' ');
+    const formattedName = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return formattedName;
+  };
+
+   const handleCardNameChange = (value) => {
+    setCardName(formatCardName(value));
+  };
+
+const formatCVV = (cvv) => {
+  const formattedCVV = cvv.replace(/\D/g, '');
+  return formattedCVV.slice(0, 3);
+};
+
+const handleCVVChange = (value) => {
+  setCVV(formatCVV(value));
+};
+
+const formatExpiry = (expiry) => {
+  const formattedExpiry = expiry.replace(/\D/g, '');
+  if (formattedExpiry.length > 2) {
+    return `${formattedExpiry.slice(0, 2)}/${formattedExpiry.slice(2)}`;
+  }
+  return formattedExpiry;
+};
+
+const handleExpiryChange = (value) => {
+  setExpiry(formatExpiry(value));
+};
 
   const validateCardNumber = (number) => {
     return /^\d{4} \d{4} \d{4} \d{4}$/.test(number);
@@ -242,7 +281,7 @@ const Payment = (props) => {
               placeholder="Vaishali Yadav"
               placeholderTextColor={COLORS.dGrey}
               onChangeText={handleCardNameChange}
-              maxLength={35}
+              maxLength={20}
             />
             {submitted && !cardName && (
               <Text style={paymentStyle.invalid}>*Invalid</Text>
@@ -254,12 +293,12 @@ const Payment = (props) => {
               <TextInput
                 style={paymentStyle.input}
                 placeholderTextColor={COLORS.dGrey}
-                onChangeText={(text) => setCardNumber(text)}
+                onChangeText={handleCardNumberChange}
                 value={cardNumber}
                 maxLength={19}
               />
               {cardNumber.length === 0 && (
-                <Text style={paymentStyle.placeholder}>************</Text>
+                <Text style={paymentStyle.placeholder}>**** **** **** ****</Text>
               )}
               <Image
                 source={IMAGES.cardSymbol}
@@ -277,8 +316,8 @@ const Payment = (props) => {
                 style={paymentStyle.inputRow}
                 placeholder="02/26"
                 placeholderTextColor={COLORS.dGrey}
-                onChangeText={(text) => setExpiry(text)}
-                maxLength={5}
+               onChangeText={handleExpiryChange}
+                maxLength={4}
               />
               {submitted && !validateExpiry(expiry) && (
                 <Text style={paymentStyle.invalid}>*Invalid</Text>
@@ -291,7 +330,7 @@ const Payment = (props) => {
                   style={paymentStyle.inputRow}
                   placeholder="***"
                   placeholderTextColor={COLORS.dGrey}
-                  onChangeText={(text) => setCVV(text)}
+                  onChangeText={handleCVVChange}
                   maxLength={3}
                 />
                 <Image
@@ -306,8 +345,7 @@ const Payment = (props) => {
           </View>
           <TouchableOpacity
             style={paymentStyle.btn1Container}
-            onPress={handleSubmit}
-          >
+            onPress={handleSubmit}>
             <Text style={paymentStyle.btn1}>USE THIS CARD</Text>
           </TouchableOpacity>
         </View>

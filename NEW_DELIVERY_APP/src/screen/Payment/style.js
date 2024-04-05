@@ -9,17 +9,18 @@ const width = Dimensions.get('window').width;
 const paymentStyle = StyleSheet.create({
   container: {
     backgroundColor: COLORS.grey,
-    height: windowHeight,
+    height: '100%',
     padding: ResponsiveSize(20),
     paddingTop: ResponsiveSize(40),
     flex: 1,
   },
   cardContainer: {
     height: '25%',
-    width: '100%',
+    width: '47%',
+    alignSelf:'center'
   },
   card: {
-    height: windowHeight * 0.23,
+    height: '100%',
     width: width * 0.47,
     paddingHorizontal: ResponsiveSize(170),
     borderRadius: ResponsiveSize(8),
@@ -38,6 +39,8 @@ const paymentStyle = StyleSheet.create({
     top: 0,
     bottom: 0,
     justifyContent: 'center',
+    width: width * 0.47,
+    height: '100%'
   },
   basePart: {
     position: 'absolute',
@@ -69,7 +72,7 @@ const paymentStyle = StyleSheet.create({
   },
   cardValue: {
     color: COLORS.white,
-    fontSize: ResponsiveSize(26),
+    fontSize: 26,
     fontWeight: '500',
     position: 'absolute',
     alignSelf: 'center',
@@ -90,15 +93,14 @@ const paymentStyle = StyleSheet.create({
   cardHolder: {
     color: COLORS.white,
     fontWeight: '500',
-    fontSize: ResponsiveSize(20),
+    fontSize: 20,
     letterSpacing: ResponsiveSize(0.48),
   },
   cardExpiry: {
     color: COLORS.white,
     fontWeight: '500',
-    fontSize: ResponsiveSize(20),
+    fontSize: 20,
   },
-
   cardValueFlipped: {
     color: COLORS.white,
     fontSize: ResponsiveSize(20),
@@ -122,7 +124,7 @@ const paymentStyle = StyleSheet.create({
     fontSize: ResponsiveSize(17),
     paddingVertical: ResponsiveSize(10),
     paddingHorizontal: ResponsiveSize(10),
-    width: width / 2.5,
+    width: ResponsiveSize(250),
   },
   input: {
     borderColor: COLORS.border,
@@ -145,7 +147,7 @@ const paymentStyle = StyleSheet.create({
   },
   btn1Container: {
     backgroundColor: COLORS.button,
-    width: width * 0.9,
+    width: '95%',
     height: ResponsiveSize(56),
     borderRadius: ResponsiveSize(8),
     marginBottom: ResponsiveSize(20),
