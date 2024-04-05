@@ -15,7 +15,7 @@ const VegetablesList = ({vegetables}) => {
         style={[
           cardStyle.itemContainer,
           {backgroundColor: isSelected ? COLORS.list : COLORS.white},
-          {width: item.name.length * 10 + ResponsiveSize(100)},
+          {width: item.name.length * ResponsiveSize(10) + ResponsiveSize(100)},
         ]}>
         {isSelected ? (
           <>

@@ -152,7 +152,7 @@ const Payment = (props) => {
           {isScannerOpen ? (
             <CardScanView
               style={paymentStyle.card}
-              sessionToken={null}
+              // sessionToken={null}
               onSuccess={(card) => {
                 setCardNumber(card.number);
                 setExpiry(card.expiry);

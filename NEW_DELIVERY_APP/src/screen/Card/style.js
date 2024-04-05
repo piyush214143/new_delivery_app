@@ -34,11 +34,12 @@ const cardStyle = StyleSheet.create({
     justifyContent: 'space-evenly',
     left:0,
     right:0,
-    height:ResponsiveSize(100)
+    height:ResponsiveSize(100),
+    paddingTop:ResponsiveSize(20),
   },
   cardContainer:{
     flex:1,
-    height:ResponsiveSize(200)
+    height:ResponsiveSize(200),
   },
   image: {
     alignSelf: 'center',
@@ -57,6 +58,9 @@ const cardStyle = StyleSheet.create({
     paddingTop: ResponsiveSize(30),
     marginRight:ResponsiveSize(80)
   },
+  imageContainer:{
+    // padding:'1%',
+  },
   productImage: {
     borderRadius: ResponsiveSize(8),
     paddingHorizontal:'35%',
@@ -67,6 +71,7 @@ const cardStyle = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     right:0,
+    left:ResponsiveSize(10)
   },
   productName: {
     color: COLORS.heading,
@@ -89,7 +94,7 @@ const cardStyle = StyleSheet.create({
     justifyContent: 'space-between',
   },
   iconSection: {
-    paddingHorizontal: ResponsiveSize(25),
+    paddingHorizontal:'11%',
     paddingVertical: ResponsiveSize(10),
     borderRadius: ResponsiveSize(8),
     marginRight: ResponsiveSize(15),

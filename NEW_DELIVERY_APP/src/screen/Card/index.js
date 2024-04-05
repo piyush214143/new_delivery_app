@@ -47,11 +47,11 @@ const Card =(props) => {
   ];
 
   return ( 
-    <View style={cardStyle.container}>
+     <ScrollView contentContainerStyle={{flexGrow: 1}} 
+     showsVerticalScrollIndicator={false} >
+    <View style={cardStyle.container}>      
       <Image source={IMAGES.bgImage} style={cardStyle.bGImage} />
-      <Header heading={'Vegetables'} back={() => props.navigation.goBack('')} />
-      <ScrollView contentContainerStyle={{flexGrow: 1}} 
-      showsVerticalScrollIndicator={false} >
+      <Header heading={'Vegetables'} back={() => props.navigation.goBack('')} />   
       <View style={cardStyle.sectionContainer} >
         <VegetablesList vegetables={vegetables1} />
         <VegetablesList vegetables={vegetables2} />
@@ -59,8 +59,8 @@ const Card =(props) => {
       <View style={cardStyle.cardContainer}>
        <Product products={products} details={()=> props.navigation.navigate('ItemProduct')} />
       </View>
-      </ScrollView>
     </View>
+       </ScrollView>
   );
 };
 
