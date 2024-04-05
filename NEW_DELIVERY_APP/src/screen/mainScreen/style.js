@@ -50,8 +50,6 @@ const mainStyle = StyleSheet.create({
     width: 40,
     height: 40,
     alignSelf: 'center',
-    // top: ResponsiveSize(30),
-    // justifyContent:'center',
   },
   heading: {
     fontWeight: '700',

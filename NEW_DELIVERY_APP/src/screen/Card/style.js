@@ -1,15 +1,10 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {COLORS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
-
-const windowHeight = Dimensions.get('window').height;
-
-const {width} = Dimensions.get('window');
 
 const cardStyle = StyleSheet.create({
   container: {
     backgroundColor: COLORS.grey,
-    // height: windowHeight,
     flexDirection: 'column',
     padding: ResponsiveSize(20),
     paddingTop:ResponsiveSize(40),
@@ -57,9 +52,6 @@ const cardStyle = StyleSheet.create({
     justifyContent: 'space-between',
     paddingTop: ResponsiveSize(30),
     marginRight:ResponsiveSize(80)
-  },
-  imageContainer:{
-    // padding:'1%',
   },
   productImage: {
     borderRadius: ResponsiveSize(8),
