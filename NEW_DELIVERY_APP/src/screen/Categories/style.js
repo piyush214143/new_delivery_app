@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 import {COLORS, FONTS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
 
-const NUM_COLUMNS = 2;
 const CARD_MARGIN = ResponsiveSize(10);
 const CARD_PADDING_HORIZONTAL = ResponsiveSize(10);
 const CARD_WIDTH_PERCENTAGE = 100;
@@ -50,7 +49,6 @@ const categoryStyle = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: CARD_PADDING_HORIZONTAL,
     paddingVertical:CARD_PADDING_HORIZONTAL,
-    // flexWrap: 'wrap',
     justifyContent: 'space-between',
     marginTop: ResponsiveSize(10),
   }, 

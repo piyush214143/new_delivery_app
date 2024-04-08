@@ -23,10 +23,10 @@ const ItemProduct = props => {
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
     <View style={itemStyle.container}>
-      <View style={{height:'38%'}}>
+      <View style={{height:'38%',width:'100%'}}>
       <SliderBox
         images={images}
-        resizeMode={'cover'}
+        
         sliderBoxHeight={'100%'}   
         dotColor="#ffffff"
         inactiveDotColor="#90A4AE"

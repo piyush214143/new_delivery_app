@@ -2,10 +2,6 @@ import {StyleSheet, Dimensions} from 'react-native';
 import {COLORS, FONTS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
 
-const windowHeight = Dimensions.get('window').height;
-
-const {width} = Dimensions.get('window');
-
 const checkoutStyle = StyleSheet.create({
   container: {
     flex: 1,
@@ -15,7 +11,6 @@ const checkoutStyle = StyleSheet.create({
     backgroundColor: COLORS.white,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // height: windowHeight * 0.12,
     padding: ResponsiveSize(20),
     paddingTop: ResponsiveSize(65),
     shadowColor: COLORS.black,
@@ -53,7 +48,6 @@ const checkoutStyle = StyleSheet.create({
     fontWeight: '600',
   },
   deliveryOptions:{
-  //  marginTop:ResponsiveSize(30)
   },
   delivery: {
    justifyContent:'space-between'

@@ -2,12 +2,11 @@ import {StyleSheet, Dimensions} from 'react-native';
 import {COLORS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
 
-const {width} = Dimensions.get('window');
-
 const itemStyle = StyleSheet.create({
   container: {
     flex: 1,
     position: 'relative',
+    height:'100%'
   },
   bottom: {
     backgroundColor: COLORS.grey,
@@ -25,8 +24,6 @@ const itemStyle = StyleSheet.create({
     color: COLORS.heading,
     fontWeight: '700',
     fontSize: ResponsiveSize(30),
-    // marginTop:'5%',
-    // marginBottom:'-5%'
   },
   productPrice: {
     color: COLORS.heading,
@@ -47,14 +44,11 @@ const itemStyle = StyleSheet.create({
     color: COLORS.heading,
     fontWeight: '700',
     fontSize: ResponsiveSize(22),
-    // marginTop:'2%',
   },
   description: {
     color: COLORS.para,
     fontSize: ResponsiveSize(14),
     lineHeight: ResponsiveSize(25.5),
-    // marginBottom:'20%',
-    // marginTop:'2%'
   },
   iconsContainer: {
     flexDirection: 'row',
