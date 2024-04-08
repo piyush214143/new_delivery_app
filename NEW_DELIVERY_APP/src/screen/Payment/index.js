@@ -250,10 +250,10 @@ const handleExpiryChange = (value) => {
                   ]}
                 >
                   <ImageBackground source={IMAGES.cardBase} resizeMode="cover" style={paymentStyle.base}>
-                  {/* <Image
+                  <Image
                     source={IMAGES.basePart}
                     style={paymentStyle.basePart}
-                  /> */}
+                    />
                   <Text style={paymentStyle.cardValueFlipped}>
                     {cvv || '***'}
                   </Text>

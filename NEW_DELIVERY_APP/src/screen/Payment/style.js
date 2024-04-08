@@ -20,7 +20,7 @@ const paymentStyle = StyleSheet.create({
   },
   card: {
     width: ResponsiveSize(335),
-    height: ResponsiveSize(200),
+    height: ResponsiveSize(215),
     borderRadius: ResponsiveSize(8),
     overflow: 'hidden',
     alignSelf:'center'
@@ -59,7 +59,9 @@ const paymentStyle = StyleSheet.create({
   },
   basePart: {
     position:'absolute',
-    alignSelf:'flex-end'
+    alignSelf:'flex-end',
+    height:'100%',
+    width:'70%'
   },
   mcSymbol: {
     alignSelf: 'flex-end',
@@ -94,10 +96,11 @@ const paymentStyle = StyleSheet.create({
     fontSize: ResponsiveSize(20),
   },
   cardValueFlipped: {
-    color: COLORS.black,
+    color: COLORS.white,
     fontSize: ResponsiveSize(20),
     transform: [{scaleX: -1}],
-    padding:ResponsiveSize(100)
+    padding:ResponsiveSize(100),
+    alignSelf:'flex-start'
   },
   inputContainer: {
     flex: 1,
@@ -115,7 +118,7 @@ const paymentStyle = StyleSheet.create({
     fontSize: ResponsiveSize(17),
     paddingVertical: ResponsiveSize(10),
     paddingHorizontal: ResponsiveSize(10),
-    width: ResponsiveSize(250),
+    width: ResponsiveSize(160),
   },
   input: {
     borderColor: COLORS.border,
