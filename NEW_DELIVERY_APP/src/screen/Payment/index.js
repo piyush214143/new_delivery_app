@@ -10,7 +10,8 @@ import {
   ScrollView,
   Platform,
   PermissionsAndroid,
-  PermissionsIOS
+  PermissionsIOS,
+  ImageBackground,
 } from 'react-native';
 import paymentStyle from './style';
 import categoryStyle from '../Categories/style';
@@ -187,6 +188,7 @@ const handleExpiryChange = (value) => {
           </TouchableOpacity>
           <Text style={categoryStyle.heading}>Credit / Debit card</Text>
         </View>
+        <View style={{flex:1}}>
         <View style={paymentStyle.cardContainer}>
           {isScannerOpen ? (
             <CardScanView
@@ -214,19 +216,14 @@ const handleExpiryChange = (value) => {
                 <Animated.View
                   style={[
                     paymentStyle.cardFace,
-                    paymentStyle.cardFaceFront,
                     frontAnimatedStyle,
                   ]}
                 >
-                  <Image
-                    source={IMAGES.cardBase}
-                    style={paymentStyle.cardImage}
-                    resizeMode="cover"
-                  />
+                  <ImageBackground source={IMAGES.cardBase} resizeMode="cover" style={paymentStyle.base}>
                   <Image
                     source={IMAGES.basePart}
                     style={paymentStyle.basePart}
-                  />
+                    />
                   <Image
                     source={IMAGES.mcSymbol}
                     style={paymentStyle.mcSymbol}
@@ -242,6 +239,8 @@ const handleExpiryChange = (value) => {
                       {expiry || '02/26'}
                     </Text>
                   </View>
+                  </ImageBackground>
+                  {/* </ImageBackground> */}
                 </Animated.View>
                 <Animated.View
                   style={[
@@ -250,18 +249,15 @@ const handleExpiryChange = (value) => {
                     backAnimatedStyle,
                   ]}
                 >
-                  <Image
-                    source={IMAGES.cardBase}
-                    style={paymentStyle.cardImage}
-                    resizeMode="cover"
-                  />
-                  <Image
+                  <ImageBackground source={IMAGES.cardBase} resizeMode="cover" style={paymentStyle.base}>
+                  {/* <Image
                     source={IMAGES.basePart}
                     style={paymentStyle.basePart}
-                  />
+                  /> */}
                   <Text style={paymentStyle.cardValueFlipped}>
                     {cvv || '***'}
                   </Text>
+                  </ImageBackground>
                 </Animated.View>
               </View>
             </TouchableOpacity>
@@ -348,6 +344,7 @@ const handleExpiryChange = (value) => {
             onPress={handleSubmit}>
             <Text style={paymentStyle.btn1}>USE THIS CARD</Text>
           </TouchableOpacity>
+        </View>
         </View>
       </View>
     </ScrollView>

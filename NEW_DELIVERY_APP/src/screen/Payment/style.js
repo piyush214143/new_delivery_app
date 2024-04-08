@@ -1,66 +1,48 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import ResponsiveSize from '../../utils/responsiveSize';
 import {COLORS, FONTS} from '../../utils/constants';
-
-const windowHeight = Dimensions.get('window').height;
-
-const width = Dimensions.get('window').width;
 
 const paymentStyle = StyleSheet.create({
   container: {
     backgroundColor: COLORS.grey,
     height: '100%',
+    width: '100%',
     padding: ResponsiveSize(20),
     paddingTop: ResponsiveSize(40),
     flex: 1,
   },
   cardContainer: {
-    height: '25%',
-    width: '47%',
-    alignSelf:'center'
+    height: ResponsiveSize(220),
+    width: '100%',
+    justifyContent:'center',
+    perspective: 1000,
+    borderRadius: ResponsiveSize(8),
   },
   card: {
-    height: '100%',
-    width: width * 0.47,
-    paddingHorizontal: ResponsiveSize(170),
+    width: ResponsiveSize(335),
+    height: ResponsiveSize(200),
     borderRadius: ResponsiveSize(8),
     overflow: 'hidden',
-    alignSelf: 'center',
+    alignSelf:'center'
   },
   flippedCard: {
     transform: [{rotateY: '180deg'}],
   },
   cardFace: {
-    flex: 1,
     position: 'absolute',
+    width: '100%',
+    height: '100%',
     backfaceVisibility: 'hidden',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
     justifyContent: 'center',
-    width: width * 0.47,
-    height: '100%'
-  },
-  basePart: {
-    position: 'absolute',
-    alignSelf: 'flex-end',
-    transform: [{scaleX: -1}],
-    left:0
-  },
-  mcSymbol: {
-    position: 'absolute',
-    alignSelf: 'flex-end',
-    top: '10%',
-    right: '5%',
+    alignItems: 'center',
   },
   cardFaceBack: {
-    transform: [{rotateY: '180deg'}]
+    transform: [{rotateY: '180deg'}],
   },
   cardLabel: {
     color: COLORS.para,
     fontSize: ResponsiveSize(14),
-    paddingVertical:ResponsiveSize(5)
+    paddingVertical: ResponsiveSize(5),
   },
   cardNumberRow: {
     justifyContent: 'center',
@@ -70,43 +52,52 @@ const paymentStyle = StyleSheet.create({
     position: 'absolute',
     right: ResponsiveSize(10),
   },
+  base: {
+    justifyContent:'space-between',
+    height: '100%',
+    width:'100%'
+  },
+  basePart: {
+    position:'absolute',
+    alignSelf:'flex-end'
+  },
+  mcSymbol: {
+    alignSelf: 'flex-end',
+    marginTop:ResponsiveSize(20),
+    marginRight:ResponsiveSize(20)
+  },
   cardValue: {
     color: COLORS.white,
-    fontSize: 26,
+    fontSize: ResponsiveSize(26),
     fontWeight: '500',
-    position: 'absolute',
-    alignSelf: 'center',
-    letterSpacing: ResponsiveSize(1.5),
+    alignSelf:'center',
+    letterSpacing:ResponsiveSize(0.8)
   },
   detailCard: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between',   
   },
   cardRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    position: 'absolute',
-    bottom: '15%',
-    left: '10%',
-    right: '10%',
+    margin:ResponsiveSize(30)
   },
   cardHolder: {
     color: COLORS.white,
     fontWeight: '500',
-    fontSize: 20,
+    fontSize: ResponsiveSize(20),
     letterSpacing: ResponsiveSize(0.48),
   },
   cardExpiry: {
     color: COLORS.white,
     fontWeight: '500',
-    fontSize: 20,
+    fontSize: ResponsiveSize(20),
   },
   cardValueFlipped: {
-    color: COLORS.white,
+    color: COLORS.black,
     fontSize: ResponsiveSize(20),
-    position: 'absolute',
     transform: [{scaleX: -1}],
-    left:'10%'
+    padding:ResponsiveSize(100)
   },
   inputContainer: {
     flex: 1,
@@ -136,30 +127,31 @@ const paymentStyle = StyleSheet.create({
     paddingVertical: ResponsiveSize(10),
     paddingHorizontal: ResponsiveSize(10),
   },
-  placeholder:{
-   position:'absolute',
-   paddingHorizontal:ResponsiveSize(10),
-   paddingTop:ResponsiveSize(5),
-   color:COLORS.dGrey
+  placeholder: {
+    position: 'absolute',
+    paddingHorizontal: ResponsiveSize(10),
+    paddingTop: ResponsiveSize(5),
+    color: COLORS.dGrey,
   },
   invalid: {
     color: 'red',
   },
   btn1Container: {
     backgroundColor: COLORS.button,
-    width: '95%',
+    width: '99%',
     height: ResponsiveSize(56),
     borderRadius: ResponsiveSize(8),
     marginBottom: ResponsiveSize(20),
     justifyContent: 'center',
-    alignItems: 'center',
     alignSelf: 'center',
+    top: ResponsiveSize(30),
   },
   btn1: {
     color: COLORS.white,
     fontSize: ResponsiveSize(15),
     fontWeight: '600',
     fontFamily: FONTS.sfRegular,
+    textAlign: 'center',
   },
 });
 
