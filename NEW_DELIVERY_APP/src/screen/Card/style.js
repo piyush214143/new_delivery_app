@@ -26,10 +26,10 @@ const cardStyle = StyleSheet.create({
   },
   sectionContainer: {
     flexDirection: 'column',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     left:0,
     right:0,
-    height:ResponsiveSize(100),
+    height:ResponsiveSize(130),
     paddingTop:ResponsiveSize(20),
   },
   cardContainer:{
