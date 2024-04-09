@@ -1,11 +1,10 @@
-import {StyleSheet,Dimensions} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import ResponsiveSize from '../../utils/responsiveSize';
 import {COLORS, FONTS} from '../../utils/constants';
-import { useWindowDimensions } from 'react-native';
-const {width,height} = useWindowDimensions();
 
- //const screenWidth = Dimensions.get('window').width;
-//const { width, height } = useWindowDimensions();
+const screenWidth = Dimensions.get('window').width;
+
+const isTablet = screenWidth > 768;
 
 const paymentStyle = StyleSheet.create({
   container: {
@@ -17,22 +16,20 @@ const paymentStyle = StyleSheet.create({
     flex: 1,
   },
   cardContainer: {
-  //  height: screenWidth * ResponsiveSize(0.5),   
-  //   width: screenWidth - ResponsiveSize(60),
-    height: height * ResponsiveSize(0.5),
-   width: width - ResponsiveSize(60),
-    justifyContent:'center',
+    height: screenWidth * ResponsiveSize(0.5) - screenWidth * ResponsiveSize(80),
+    width:'100%',
+    justifyContent: 'center',
     perspective: 1000,
     borderRadius: ResponsiveSize(8),
-    alignSelf: "center",
-    marginVertical:'-20%'
+    alignSelf: 'center',
+    marginVertical:ResponsiveSize(10)
   },
   card: {
     width: '100%',
-    height: screenWidth > 768 ? ResponsiveSize(300) : ResponsiveSize(212),
+    height: isTablet ? ResponsiveSize(300) : screenWidth > 768 ? ResponsiveSize(300) : ResponsiveSize(210),
     borderRadius: ResponsiveSize(8),
     overflow: 'hidden',
-    alignSelf:'center'
+    alignSelf: 'center',
   },
   flippedCard: {
     transform: [{rotateY: '180deg'}],
@@ -62,37 +59,37 @@ const paymentStyle = StyleSheet.create({
     right: ResponsiveSize(10),
   },
   base: {
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
     height: '100%',
-    width:'100%'
+    width: '100%',
   },
   basePart: {
-    position:'absolute',
-    alignSelf:'flex-end',
-    height:'100%',
-    width:'70%'
+    position: 'absolute',
+    alignSelf: 'flex-end',
+    height: '100%',
+    width: '70%',
   },
   mcSymbol: {
     alignSelf: 'flex-end',
-    marginTop:ResponsiveSize(20),
-    marginRight:ResponsiveSize(20)
+    marginTop: ResponsiveSize(20),
+    marginRight: ResponsiveSize(20),
   },
   cardValue: {
     color: COLORS.white,
-    fontSize: ResponsiveSize(26),
+    fontSize: isTablet ? ResponsiveSize(36) : ResponsiveSize(26), // Adjusted font size for tablets
     fontWeight: '500',
-    alignSelf:'flex-start',
-    letterSpacing:ResponsiveSize(0.8),
-    marginLeft:ResponsiveSize(30)
+    alignSelf: 'flex-start',
+    letterSpacing: isTablet ? ResponsiveSize(5.8) : ResponsiveSize(0.8), // Adjusted letterSpacing for tablets
+    marginLeft: ResponsiveSize(30),
   },
   detailCard: {
     flexDirection: 'row',
-    justifyContent: 'space-between',   
+    justifyContent: 'space-between',
   },
   cardRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin:ResponsiveSize(30)
+    margin: ResponsiveSize(30),
   },
   cardHolder: {
     color: COLORS.white,
@@ -109,8 +106,8 @@ const paymentStyle = StyleSheet.create({
     color: COLORS.white,
     fontSize: ResponsiveSize(20),
     transform: [{scaleX: -1}],
-    padding:ResponsiveSize(100),
-    alignSelf:'flex-start'
+    padding: ResponsiveSize(100),
+    alignSelf: 'flex-start',
   },
   inputContainer: {
     flex: 1,

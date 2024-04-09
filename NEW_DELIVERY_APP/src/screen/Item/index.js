@@ -26,7 +26,6 @@ const ItemProduct = props => {
       <View style={{height:'38%',width:'100%'}}>
       <SliderBox
         images={images}
-        
         sliderBoxHeight={'100%'}   
         dotColor="#ffffff"
         inactiveDotColor="#90A4AE"
@@ -49,7 +48,7 @@ const ItemProduct = props => {
       </View>
       <View style={itemStyle.bottom}>
         <Text style={itemStyle.itemName}>Boston Lettuce</Text>
-        <View style={{justifyContent:'space-around'}}>
+        <View style={{justifyContent:'space-between'}}>
           <View style={{flexDirection:'row',alignItems:'center'}}>
           <Text style={itemStyle.productPrice}>
             1.10
