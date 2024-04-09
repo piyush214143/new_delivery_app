@@ -1,18 +1,14 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {COLORS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
-
-const windowHeight = Dimensions.get('window').height;
-
-const {width} = Dimensions.get('window');
 
 const cardStyle = StyleSheet.create({
   container: {
     backgroundColor: COLORS.grey,
-    height: windowHeight,
     flexDirection: 'column',
     padding: ResponsiveSize(20),
-    paddingTop:ResponsiveSize(40)
+    paddingTop:ResponsiveSize(40),
+    flex:1
   },
   bGImage: {
     position: 'absolute',
@@ -31,9 +27,14 @@ const cardStyle = StyleSheet.create({
   sectionContainer: {
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    flex: 1,
     left:0,
     right:0,
+    height:ResponsiveSize(100),
+    paddingTop:ResponsiveSize(20),
+  },
+  cardContainer:{
+    flex:1,
+    height:ResponsiveSize(200),
   },
   image: {
     alignSelf: 'center',
@@ -49,19 +50,20 @@ const cardStyle = StyleSheet.create({
   productContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingBottom: '3%',
-    paddingTop: '5%',
+    paddingTop: ResponsiveSize(30),
+    marginRight:ResponsiveSize(80)
   },
   productImage: {
     borderRadius: ResponsiveSize(8),
-    width: width * 0.4 + ResponsiveSize(20),
-    height: windowHeight * 0.16,
+    paddingHorizontal:'35%',
+    paddingVertical:'20%'
   },
   detailsContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    paddingHorizontal: '5%',
+    right:0,
+    left:ResponsiveSize(10)
   },
   productName: {
     color: COLORS.heading,
@@ -84,7 +86,7 @@ const cardStyle = StyleSheet.create({
     justifyContent: 'space-between',
   },
   iconSection: {
-    paddingHorizontal: ResponsiveSize(25),
+    paddingHorizontal:'11%',
     paddingVertical: ResponsiveSize(10),
     borderRadius: ResponsiveSize(8),
     marginRight: ResponsiveSize(15),

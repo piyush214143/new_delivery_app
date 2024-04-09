@@ -1,43 +1,61 @@
-import {React, useState} from 'react';
-import { View,Text, FlatList, TouchableOpacity, Image} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import cardStyle from '../screen/Card/style';
-import {COLORS, IMAGES} from '../utils/constants';
+import { COLORS, IMAGES } from '../utils/constants';
+import ResponsiveSize from '../utils/responsiveSize';
 
-const VegetablesList = ({vegetables}) => {
-  const [selectedItem, setSelectedItem] = useState();
+const VegetablesList = ({ vegetables }) => {
+  const [selectedItems, setSelectedItems] = useState([]);
 
-  const renderItem = ({item}) => {
-    const isSelected = selectedItem === item.id;
+  const toggleItemSelection = (itemId) => {
+    if (selectedItems.includes(itemId)) {
+      setSelectedItems(selectedItems.filter((id) => id !== itemId));
+    } else {
+      setSelectedItems([...selectedItems, itemId]);
+    }
+  };
+
+  const renderItem = ({ item }) => {
+    const isSelected = selectedItems.includes(item.id);
     return (
       <TouchableOpacity
-        onPress={() => setSelectedItem(isSelected ? null : item.id)}
+        onPress={() => toggleItemSelection(item.id)}
         style={[
           cardStyle.itemContainer,
-          {backgroundColor: isSelected ? COLORS.list : COLORS.white},
-          {width: item.name.length * 10 + 65},
-        ]}>
-        {isSelected ? (
-          <>
-          <View style={{flexDirection:'row', justifyContent:'space-evenly',alignContent:'center'}}>
+          { backgroundColor: isSelected ? COLORS.list : COLORS.white },
+          {
+            width:
+              item.name.length * ResponsiveSize(10) + ResponsiveSize(100),
+          },
+        ]}
+      >
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-evenly',
+            alignContent: 'center',
+          }}
+        >
+          {isSelected && (
             <Image source={IMAGES.tick} style={cardStyle.image} />
-            <Text style={[cardStyle.name, {color: COLORS.darkPurple}]}>
-              {item.name}
-            </Text>
-            <Text style={[cardStyle.items, {color: COLORS.darkPurple}]}>
-              ({item.num})
-            </Text>
-            </View>
-          </>
-        ) : (
-          <>
-            <Text style={[cardStyle.name, {color: COLORS.para}]}>
-              {item.name}
-            </Text>
-            <Text style={[cardStyle.items, {color: COLORS.para}]}>
-              ({item.num})
-            </Text>
-          </>
-        )}
+          )}
+          <Text
+            style={[
+              cardStyle.name,
+              { color: isSelected ? COLORS.darkPurple : COLORS.para },
+            ]}
+          >
+            {item.name}
+          </Text>
+          <Text
+            style={[
+              cardStyle.items,
+              { color: isSelected ? COLORS.darkPurple : COLORS.para },
+            ]}
+          >
+            ({item.num})
+          </Text>
+        </View>
       </TouchableOpacity>
     );
   };
@@ -46,7 +64,7 @@ const VegetablesList = ({vegetables}) => {
     <FlatList
       data={vegetables}
       renderItem={renderItem}
-      keyExtractor={item => item.id}
+      keyExtractor={(item) => item.id}
       horizontal
       showsHorizontalScrollIndicator={false}
     />

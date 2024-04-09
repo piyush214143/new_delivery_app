@@ -1,39 +1,33 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {COLORS, FONTS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
 
-const windowHeight = Dimensions.get('window').height;
-
-const {width} = Dimensions.get('window');
 const CARD_MARGIN = ResponsiveSize(10);
 const CARD_PADDING_HORIZONTAL = ResponsiveSize(10);
-const NUM_COLUMNS = 2;
-const cardWidth =
-  (width - (NUM_COLUMNS + 1) * CARD_MARGIN - 2 * CARD_PADDING_HORIZONTAL) /
-  NUM_COLUMNS;
-const cardHeight = cardWidth * 1.2;
+const CARD_WIDTH_PERCENTAGE = 100;
 
 const categoryStyle = StyleSheet.create({
   container: {
     backgroundColor: COLORS.grey,
-    height: windowHeight,
     padding: ResponsiveSize(20),
-    paddingTop:ResponsiveSize(40)
+    paddingTop: ResponsiveSize(40),
+    flex:1
   },
   headerContainer: {
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    height: windowHeight * 0.23,
+    height:ResponsiveSize(170)
   },
   header: {
-    height: windowHeight * 0.15,
     flexDirection: 'column',
     justifyContent: 'space-evenly',
+    paddingTop:ResponsiveSize(20)
   },
   heading: {
     fontSize: ResponsiveSize(31),
     color: COLORS.heading,
     fontWeight: '700',
+    paddingVertical:ResponsiveSize(20)
   },
   searchContainer: {
     flexDirection: 'row',
@@ -43,31 +37,35 @@ const categoryStyle = StyleSheet.create({
     borderRadius: ResponsiveSize(100),
     borderWidth: ResponsiveSize(1),
     borderColor: COLORS.border,
-    paddingHorizontal:ResponsiveSize(10)
+    paddingHorizontal: ResponsiveSize(10),
   },
   search: {
     width: '80%',
     height: ResponsiveSize(48),
+    fontSize: ResponsiveSize(17)
   },
   itemContainer: {
-    paddingRight: CARD_PADDING_HORIZONTAL,
-    paddingTop: CARD_MARGIN,
-    paddingBottom: CARD_MARGIN,
-  },
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: CARD_PADDING_HORIZONTAL,
+    paddingVertical:CARD_PADDING_HORIZONTAL,
+    justifyContent: 'space-between',
+    marginTop: ResponsiveSize(10),
+  }, 
   card: {
     borderWidth: 1,
     borderColor: COLORS.border,
     borderRadius: ResponsiveSize(8),
     backgroundColor: COLORS.white,
-    width: cardWidth,
-    height: cardHeight,
+    width: `${CARD_WIDTH_PERCENTAGE}%`,
+    aspectRatio: 0.9,
     justifyContent: 'space-evenly',
-    bottom: '20%',
+    marginBottom: CARD_MARGIN,
   },
   image: {
     resizeMode: 'cover',
     width: '100%',
-    // height: '87%',
+    height: '87%',
   },
   name: {
     fontSize: ResponsiveSize(18),
@@ -85,3 +83,4 @@ const categoryStyle = StyleSheet.create({
 });
 
 export default categoryStyle;
+

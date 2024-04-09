@@ -1,15 +1,12 @@
 import {StyleSheet, Dimensions} from 'react-native';
-import {COLORS, FONTS, IMAGES} from '../../utils/constants';
+import {COLORS} from '../../utils/constants';
 import ResponsiveSize from '../../utils/responsiveSize';
-
-const windowHeight = Dimensions.get('window').height;
-
-const {width} = Dimensions.get('window');
 
 const itemStyle = StyleSheet.create({
   container: {
     flex: 1,
     position: 'relative',
+    height:'100%'
   },
   bottom: {
     backgroundColor: COLORS.grey,
@@ -17,10 +14,11 @@ const itemStyle = StyleSheet.create({
     borderTopStartRadius: ResponsiveSize(40),
     borderTopEndRadius: ResponsiveSize(40),
     width: '100%',
-    height: windowHeight * 0.68,
+    height: '70%',
     bottom: 0,
     justifyContent: 'space-evenly',
     paddingHorizontal: ResponsiveSize(20),
+    paddingBottom:ResponsiveSize(80)
   },
   itemName: {
     color: COLORS.heading,
@@ -50,17 +48,19 @@ const itemStyle = StyleSheet.create({
   description: {
     color: COLORS.para,
     fontSize: ResponsiveSize(14),
-    paddingBottom: '15%',
     lineHeight: ResponsiveSize(25.5),
   },
   iconsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignContent: 'center',
-    paddingBottom: '10%',
+    position:'absolute',
+    bottom:0,
+    paddingHorizontal:ResponsiveSize(10),
+    paddingLeft:ResponsiveSize(20),
+    paddingBottom:ResponsiveSize(20)
   },
   icon1Section: {
-    width: width * 0.2,
+    width: '25%',
     paddingVertical: ResponsiveSize(17),
     borderRadius: ResponsiveSize(8),
     flexDirection: 'row',
@@ -69,7 +69,7 @@ const itemStyle = StyleSheet.create({
     justifyContent: 'center',
   },
   icon2Section: {
-    width: width * 0.6,
+    width: '70%',
     paddingVertical: ResponsiveSize(17),
     borderRadius: ResponsiveSize(8),
     flexDirection: 'row',

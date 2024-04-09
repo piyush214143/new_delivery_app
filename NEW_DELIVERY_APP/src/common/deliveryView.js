@@ -6,8 +6,8 @@ import ResponsiveSize from '../utils/responsiveSize';
 
 const DeliveryOptionsComponent = ({ selectedOption, setSelectedOption }) => {
   return (
-   <View>
-          <View style={checkoutStyle.DeliveryOptions}>
+  <>
+          <View style={checkoutStyle.options}>
             <Text style={checkoutStyle.optionText}>Delivery options</Text>
             <Text style={checkoutStyle.change}>CHANGE</Text>
           </View>
@@ -65,7 +65,7 @@ const DeliveryOptionsComponent = ({ selectedOption, setSelectedOption }) => {
               )}
             </TouchableOpacity>
           </View>
-        </View>
+        </>
   );
 };
 

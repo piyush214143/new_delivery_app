@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, View,ScrollView} from 'react-native';
 import cardStyle from './style';
 import Header from '../../common/header';
 import VegetablesList from '../../common/vegetablesList';
@@ -14,6 +14,7 @@ const Card =(props) => {
     {id: 3, name: 'Broccoli', num: 33},
     {id: 4, name: 'Spinach', num: 45},
     {id: 5, name: 'Сucumbers and tomatoes', num: 13},
+    {id: 6, name: 'Oinons and garlic', num: 45},
   ];
   const vegetables2 = [
     {id: 1, name: 'Oinons and garlic', num: 43},
@@ -21,6 +22,7 @@ const Card =(props) => {
     {id: 3, name: 'Broccoli', num: 33},
     {id: 4, name: 'Spinach', num: 45},
     {id: 5, name: 'Bell Pepper', num: 13},
+    {id: 6, name: 'Potatoes and carrots', num: 21},
   ];
 
   const products = [
@@ -44,16 +46,21 @@ const Card =(props) => {
     },
   ];
 
-  return (
-    <View style={cardStyle.container}>
+  return ( 
+     <ScrollView contentContainerStyle={{flexGrow: 1}} 
+     showsVerticalScrollIndicator={false} >
+    <View style={cardStyle.container}>      
       <Image source={IMAGES.bgImage} style={cardStyle.bGImage} />
-      <Header heading={'Vegetables'} back={() => props.navigation.goBack('')} />
-      <View style={cardStyle.sectionContainer}>
+      <Header heading={'Vegetables'} back={() => props.navigation.goBack('')} />   
+      <View style={cardStyle.sectionContainer} >
         <VegetablesList vegetables={vegetables1} />
         <VegetablesList vegetables={vegetables2} />
-        <Product products={products} details={()=> props.navigation.navigate('ItemProduct')} />
+      </View>
+      <View style={cardStyle.cardContainer}>
+       <Product products={products} details={()=> props.navigation.navigate('ItemProduct')} />
       </View>
     </View>
+       </ScrollView>
   );
 };
 

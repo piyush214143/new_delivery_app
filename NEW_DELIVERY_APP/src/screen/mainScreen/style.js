@@ -11,7 +11,7 @@ const mainStyle = StyleSheet.create({
     height: windowHeight,
   },
   background:{
-   alignSelf:'flex-end'
+   alignSelf:'flex-end',
   },
   logoContainer: {
     width: ResponsiveSize(63),
@@ -32,23 +32,24 @@ const mainStyle = StyleSheet.create({
     borderTopStartRadius: ResponsiveSize(40),
     borderTopEndRadius: ResponsiveSize(40),
     width: '100%',
-    height: windowHeight * 0.65,
-    flex: 0.65,
+    height: '70%',
     bottom: 0,
     justifyContent: 'space-evenly',
     alignItems: 'center',
+    paddingTop:ResponsiveSize(10)
   },
   icon: {
-    width: ResponsiveSize(104),
-    height: ResponsiveSize(104),
+    width: 104,
+    height: 104,
     borderRadius: ResponsiveSize(104 / 2),
     backgroundColor: COLORS.white,
+    alignSelf:'center',
+    justifyContent:'center'
   },
   box: {
-    width: ResponsiveSize(40),
-    height: ResponsiveSize(40),
+    width: 40,
+    height: 40,
     alignSelf: 'center',
-    top: ResponsiveSize(30),
   },
   heading: {
     fontWeight: '700',
