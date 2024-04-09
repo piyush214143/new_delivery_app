@@ -1,8 +1,11 @@
 import {StyleSheet,Dimensions} from 'react-native';
 import ResponsiveSize from '../../utils/responsiveSize';
 import {COLORS, FONTS} from '../../utils/constants';
+import { useWindowDimensions } from 'react-native';
+const {width,height} = useWindowDimensions();
 
-const screenWidth = Dimensions.get('window').width;
+ //const screenWidth = Dimensions.get('window').width;
+//const { width, height } = useWindowDimensions();
 
 const paymentStyle = StyleSheet.create({
   container: {
@@ -14,12 +17,15 @@ const paymentStyle = StyleSheet.create({
     flex: 1,
   },
   cardContainer: {
-    height: screenWidth * ResponsiveSize(0.75),   // 
-    width: screenWidth - ResponsiveSize(60),//
+  //  height: screenWidth * ResponsiveSize(0.5),   
+  //   width: screenWidth - ResponsiveSize(60),
+    height: height * ResponsiveSize(0.5),
+   width: width - ResponsiveSize(60),
     justifyContent:'center',
     perspective: 1000,
     borderRadius: ResponsiveSize(8),
-    alignSelf: "center"
+    alignSelf: "center",
+    marginVertical:'-20%'
   },
   card: {
     width: '100%',
