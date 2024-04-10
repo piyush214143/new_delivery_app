@@ -66,8 +66,8 @@ const categoryStyle = StyleSheet.create({
     resizeMode: 'cover',
     width: '100%',
     height: '87%',
-    borderTopStartRadius:ResponsiveSize(8),
-    borderTopEndRadius:ResponsiveSize(8)
+    // borderTopStartRadius:ResponsiveSize(8),
+    // borderTopEndRadius:ResponsiveSize(8)
   },
   name: {
     fontSize: ResponsiveSize(18),

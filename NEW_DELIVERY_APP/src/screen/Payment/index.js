@@ -29,8 +29,7 @@ const Payment = props => {
   const [submitted, setSubmitted] = useState(false);
   const [isScannerOpen, setIsScannerOpen] = useState(false);
   const [cameraPermissionGranted, setCameraPermissionGranted] = useState(false);
-  const [emptyFieldsError, setEmptyFieldsError] = useState(false);
-  const [invalidEntryError, setInvalidEntryError] = useState(false);
+  const [containsSpecialChars, setContainsSpecialChars] = useState(false);
   // const [orientation, setOrientation] = useState(
   //   Dimensions.get('window').width > Dimensions.get('window').height
   //     ? 'landscape'
@@ -110,35 +109,36 @@ const Payment = props => {
     setCardNumber(formatCreditCardNumber(value));
   };
 
-  const formatCardName = name => {
-    const lowercaseName = name.toLowerCase();
-    const words = lowercaseName.split(' ');
-    const formattedName = words
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-    return formattedName;
-  };
-
-  const handleCardNameChange = value => {
-    const formattedName = value.replace(/^([A-Za-z]{3, })\s([A-Za-z]{3, })$/);
-    setCardName(formattedName(value));
-  };
-
-  const formatCVV = cvv => {
-    const formattedCVV = cvv.replace(/\D/g, '');
-    return formattedCVV.slice(0, 3);
-  };
-
-  const handleCVVChange = value => {
-    setCVV(formatCVV(value));
-  };
-
   const handleExpiryChange = value => {
     const numericValue = value.replace(/\D/g, '');
     const maxLength = 4;
     const truncatedValue = numericValue.slice(0, maxLength);
     const formattedExpiry = truncatedValue.replace(/(\d{2})(\d{0,2})/, '$1/$2');
     setExpiry(formattedExpiry);
+  };
+
+  const handleCVVChange = value => {
+    const formattedCVV = value.replace(/\D/g, '');
+    setCVV(formattedCVV);
+  };
+
+  const formatCardName = name => {
+   const cleanedName = name.replace(/"[A-Z]"/g, '').trim();
+    const formattedName = cleanedName
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+    return formattedName;
+  };
+
+  const handleCardNameChange = value => {
+    setCardName(formatCardName(value));
+    setContainsSpecialChars(/[^\p{L}\s]/u.test(value));
+  };
+
+  const validateCardName = name => {
+    return name.trim().length > 0;
   };
 
   const validateCardNumber = number => {
@@ -157,7 +157,7 @@ const Payment = props => {
     setSubmitted(true);
 
     if (
-      !cardName ||
+      !validateCardName(cardName) ||
       !validateCardNumber(cardNumber) ||
       !validateExpiry(expiry) ||
       !validateCVV(cvv)
@@ -166,9 +166,9 @@ const Payment = props => {
     }
   };
 
-  const handleCloseScanner = () => {
-    setIsScannerOpen(false);
-  };
+  // const handleCloseScanner = () => {
+  //   setIsScannerOpen(false);
+  // };
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
@@ -298,8 +298,15 @@ const Payment = props => {
                 onChangeText={handleCardNameChange}
                 maxLength={20}
               />
-              {submitted && !cardName && (
-                <Text style={paymentStyle.invalid}>This is a required field </Text>
+              {containsSpecialChars && (
+                <Text style={paymentStyle.invalid}>
+                  Special characters and numbers are not allowed
+                </Text>
+              )}
+              {submitted && !validateCardName(cardName) && (
+                <Text style={paymentStyle.invalid}>
+                  This is a required field{' '}
+                </Text>
               )}
             </View>
             <View>
@@ -324,7 +331,9 @@ const Payment = props => {
                 />
               </View>
               {submitted && !validateCardNumber(cardNumber) && (
-                <Text style={paymentStyle.invalid}>This is a required field</Text>
+                <Text style={paymentStyle.invalid}>
+                  This is a required field
+                </Text>
               )}
             </View>
             <View style={paymentStyle.detailCard}>
@@ -336,10 +345,12 @@ const Payment = props => {
                   placeholderTextColor={COLORS.dGrey}
                   onChangeText={handleExpiryChange}
                   maxLength={4}
+                  keyboardType="numeric"
                 />
                 {submitted && !validateExpiry(expiry) && (
-                  <Text style={paymentStyle.invalid}>This is a required field</Text>
-
+                  <Text style={paymentStyle.invalid}>
+                    This is a required field
+                  </Text>
                 )}
               </View>
               <View>
@@ -352,11 +363,14 @@ const Payment = props => {
                     onChangeText={handleCVVChange}
                     maxLength={3}
                     secureTextEntry={true}
+                    keyboardType="numeric"
                   />
                   <Image source={IMAGES.cvv} style={paymentStyle.cardSymbol} />
                 </View>
                 {submitted && !validateCVV(cvv) && (
-                  <Text style={paymentStyle.invalid}>This is a required field</Text>
+                  <Text style={paymentStyle.invalid}>
+                    This is a required field
+                  </Text>
                 )}
               </View>
             </View>
