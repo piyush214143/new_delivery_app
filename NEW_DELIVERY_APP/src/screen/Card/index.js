@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, View,ScrollView} from 'react-native';
+import {Image, View, ScrollView} from 'react-native';
 import cardStyle from './style';
 import Header from '../../common/header';
 import VegetablesList from '../../common/vegetablesList';

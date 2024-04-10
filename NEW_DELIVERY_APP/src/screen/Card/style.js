@@ -63,7 +63,7 @@ const cardStyle = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     right:0,
-    left:ResponsiveSize(10)
+    left:ResponsiveSize(5)
   },
   productName: {
     color: COLORS.heading,
