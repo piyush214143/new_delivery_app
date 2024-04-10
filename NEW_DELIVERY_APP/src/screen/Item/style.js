@@ -15,6 +15,7 @@ const itemStyle = StyleSheet.create({
     position: 'absolute',
     borderTopStartRadius: ResponsiveSize(40),
     borderTopEndRadius: ResponsiveSize(40),
+    width:'100%',
     height: '70%',
     bottom: 0,
     justifyContent: 'space-evenly',
@@ -25,7 +26,7 @@ const itemStyle = StyleSheet.create({
     color: COLORS.heading,
     fontWeight: '700',
     fontSize: ResponsiveSize(30),
-    paddingTop:ResponsiveSize(20)
+    // paddingTop:ResponsiveSize(20)
   },
   productPrice: {
     color: COLORS.heading,
@@ -49,7 +50,7 @@ const itemStyle = StyleSheet.create({
   },
   description: {
     color: COLORS.para,
-    fontSize: ResponsiveSize(14),
+    fontSize: ResponsiveSize(17),
     lineHeight: ResponsiveSize(25.5),
     paddingBottom:ResponsiveSize(70)
   },

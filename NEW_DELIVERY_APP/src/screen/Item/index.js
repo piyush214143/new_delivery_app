@@ -27,6 +27,7 @@ const ItemProduct = props => {
       <SliderBox
         images={images}
         sliderBoxHeight={'100%'}
+        contentContainerStyle={width='100%'}
         dotColor="#ffffff"
         inactiveDotColor="#90A4AE"
         dotStyle={{

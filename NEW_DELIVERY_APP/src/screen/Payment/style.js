@@ -102,17 +102,17 @@ const paymentStyle = StyleSheet.create({
   cardHolder: {
     color: COLORS.white,
     fontWeight: '500',
-    fontSize: ResponsiveSize(20),
+    fontSize:isTablet ? ResponsiveSize(25) : ResponsiveSize(20),
     letterSpacing: ResponsiveSize(0.48),
   },
   cardExpiry: {
     color: COLORS.white,
     fontWeight: '500',
-    fontSize: ResponsiveSize(20),
+    fontSize:isTablet ? ResponsiveSize(25) : ResponsiveSize(20),
   },
   cardValueFlipped: {
     color: COLORS.white,
-    fontSize: ResponsiveSize(20),
+    fontSize:ResponsiveSize(20),
     transform: [{scaleX: -1}],
     padding: ResponsiveSize(100),
     alignSelf: 'flex-start',
@@ -153,6 +153,7 @@ const paymentStyle = StyleSheet.create({
   },
   invalid: {
     color: 'red',
+    fontSize: ResponsiveSize(14),
   },
   btn1Container: {
     backgroundColor: COLORS.button,
