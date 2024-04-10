@@ -50,7 +50,7 @@ const ItemProduct = props => {
       <View style={itemStyle.bottom}>
         <Text style={itemStyle.itemName}>Boston Lettuce</Text>
         <View style={{justifyContent:'space-between'}}>
-          <View style={{flexDirection:'row',alignItems:'center',marginBottom:ResponsiveSize(20)}}>
+          <View style={{flexDirection:'row',alignItems:'center',marginBottom:'2%'}}>
           <Text style={itemStyle.productPrice}>
             1.10
           </Text>

@@ -26,7 +26,7 @@ const itemStyle = StyleSheet.create({
     color: COLORS.heading,
     fontWeight: '700',
     fontSize: ResponsiveSize(30),
-    // paddingTop:ResponsiveSize(20)
+    paddingTop:ResponsiveSize(20)
   },
   productPrice: {
     color: COLORS.heading,
