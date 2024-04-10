@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import cardStyle from '../screen/Card/style';
 import { COLORS, IMAGES } from '../utils/constants';
-import ResponsiveSize from '../utils/responsiveSize';
 
 const Product = ({ products, details }) => {
   const [selectedItems, setSelectedItems] = useState([]);
