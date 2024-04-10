@@ -15,7 +15,6 @@ const itemStyle = StyleSheet.create({
     position: 'absolute',
     borderTopStartRadius: ResponsiveSize(40),
     borderTopEndRadius: ResponsiveSize(40),
-    // width: '100%',
     height: '70%',
     bottom: 0,
     justifyContent: 'space-evenly',
@@ -35,7 +34,7 @@ const itemStyle = StyleSheet.create({
   pieceText: {
     color: COLORS.para,
     fontSize: ResponsiveSize(24),
-    // paddingHorizontal: ResponsiveSize(5),
+    paddingHorizontal: ResponsiveSize(5),
   },
   quantity: {
     color: COLORS.quantity,
@@ -64,7 +63,6 @@ const itemStyle = StyleSheet.create({
   },
   icon1Section: {
     width: '25%',
-    // paddingVertical: ResponsiveSize(17),
     borderRadius: ResponsiveSize(8),
     flexDirection: 'row',
     borderWidth: 1,
