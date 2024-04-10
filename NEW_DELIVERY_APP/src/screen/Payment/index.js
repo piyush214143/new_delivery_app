@@ -123,7 +123,7 @@ const Payment = props => {
   };
 
   const formatCardName = name => {
-   const cleanedName = name.replace(/"[A-Z]"/g, '').trim();
+   const cleanedName = name.replace(/"[A-Za-z]"/g, '').trim();
     const formattedName = cleanedName
       .toLowerCase()
       .split(' ')
@@ -165,11 +165,6 @@ const Payment = props => {
       return;
     }
   };
-
-  // const handleCloseScanner = () => {
-  //   setIsScannerOpen(false);
-  // };
-
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
     Animated.timing(flipAnimation, {

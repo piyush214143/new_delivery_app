@@ -62,6 +62,14 @@ const paymentStyle = StyleSheet.create({
     justifyContent: 'space-between',
     height: '100%',
     width: '100%',
+    // shadowColor: '#B894D7',
+    // shadowOffset: {
+    //   width: ResponsiveSize(6),
+    //   height: 6,
+    // },
+    // shadowOpacity: 0.60,
+    // shadowRadius: 3.84,
+    // elevation: 5,
   },
   basePart: {
     position: 'absolute',
