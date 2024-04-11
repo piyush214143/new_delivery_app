@@ -49,7 +49,6 @@ const Product = ({ products, details }) => {
               onPress={() => handlePress(index)}
               style={[
                 cardStyle.iconSection,
-                // !isSelected ? cardStyle.selectedIcon : cardStyle.unselectedIcon,
                  {backgroundColor: !isSelected ? COLORS.button : COLORS.white},
               ]}>
               <Image

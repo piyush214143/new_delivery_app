@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState} from 'react';
 import {Image, View, ScrollView} from 'react-native';
 import cardStyle from './style';
 import Header from '../../common/header';
@@ -6,7 +6,8 @@ import VegetablesList from '../../common/vegetablesList';
 import {IMAGES} from '../../utils/constants';
 import Product from '../../common/product';
 
-const Card =(props) => {
+const Card = props => {
+  const [searchTerm, setSearchTerm] = useState('');
 
   const vegetables1 = [
     {id: 1, name: 'Carrot', num: 43},
@@ -46,21 +47,38 @@ const Card =(props) => {
     },
   ];
 
-  return ( 
-     <ScrollView contentContainerStyle={{flexGrow: 1}} 
-     showsVerticalScrollIndicator={false} >
-    <View style={cardStyle.container}>      
-      <Image source={IMAGES.bgImage} style={cardStyle.bGImage} />
-      <Header heading={'Vegetables'} back={() => props.navigation.goBack('')} />   
-      <View style={cardStyle.sectionContainer} >
-        <VegetablesList vegetables={vegetables1} />
-        <VegetablesList vegetables={vegetables2} />
+  const handleSearch = text => {
+    setSearchTerm(text);
+  };
+
+  return (
+    <ScrollView
+      contentContainerStyle={{flexGrow: 1}}
+      showsVerticalScrollIndicator={false}>
+      <View style={cardStyle.container}>
+        <Image source={IMAGES.bgImage} style={cardStyle.bGImage} />
+        <Header
+          heading={'Vegetables'}
+          back={() => props.navigation.goBack('')}
+          onChangeText={handleSearch}
+          value={searchTerm}
+        />
+        <View style={cardStyle.sectionContainer}>
+          <VegetablesList vegetables={vegetables1} />
+          <VegetablesList vegetables={vegetables2} />
+        </View>
+        <View style={cardStyle.cardContainer}>
+          <Product
+            products={products.filter(product =>
+              product.productName
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase()),
+            )}
+            details={() => props.navigation.navigate('ItemProduct')}
+          />
+        </View>
       </View>
-      <View style={cardStyle.cardContainer}>
-       <Product products={products} details={()=> props.navigation.navigate('ItemProduct')} />
-      </View>
-    </View>
-       </ScrollView>
+    </ScrollView>
   );
 };
 

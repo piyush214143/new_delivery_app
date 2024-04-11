@@ -5,11 +5,12 @@ import Header from '../../common/header';
 import {IMAGES} from '../../utils/constants';
 
 const Categories = props => {
+
+  const [searchTerm, setSearchTerm] = useState('');
+
   const handleCard = () => {
     props.navigation.navigate('Card');
   };
-
-  const [text, onChangeText] = useState('');
 
   const categoriesData = [
     {
@@ -50,6 +51,14 @@ const Categories = props => {
     },
   ];
 
+  const handleSearch = text => {
+    setSearchTerm(text);
+  };
+
+   const filteredCategories = categoriesData.filter(category =>
+    category.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const CategoryItem = ({image, name, num}) => (
     <View style={categoryStyle.itemContainer}>
       <View style={categoryStyle.card}>
@@ -88,11 +97,11 @@ const Categories = props => {
       <Header
         heading={'Categories'}
         back={() => props.navigation.goBack('')}
-        value={text}
-        onChangeText={onChangeText}
+        value={searchTerm}
+        onChangeText={handleSearch}
       />
       <FlatList
-        data={categoriesData}
+         data={filteredCategories}
         showsVerticalScrollIndicator={false}
         renderItem={({item}) => (
           <CategoryItem image={item.image} name={item.name} num={item.num} />
