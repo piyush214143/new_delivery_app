@@ -101,7 +101,7 @@ const Categories = props => {
         onChangeText={handleSearch}
       />
       <FlatList
-         data={filteredCategories}
+        data={filteredCategories}
         showsVerticalScrollIndicator={false}
         renderItem={({item}) => (
           <CategoryItem image={item.image} name={item.name} num={item.num} />
