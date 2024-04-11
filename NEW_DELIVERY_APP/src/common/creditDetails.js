@@ -192,10 +192,9 @@ export const CardInput = ({
   );
 };
 
-export const CardScanner = ({isScannerOpen, setIsScannerOpen}) => {
+export const CardScanner = ({setIsScannerOpen}) => {
   return (
     <View>
-      {isScannerOpen && (
         <CardScanView
           style={paymentStyle.card}
           // sessionToken={null}
@@ -210,7 +209,6 @@ export const CardScanner = ({isScannerOpen, setIsScannerOpen}) => {
             setIsScannerOpen(false);
           }}
         />
-      )}
     </View>
   );
 };

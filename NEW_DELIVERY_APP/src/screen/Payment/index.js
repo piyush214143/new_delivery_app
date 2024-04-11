@@ -12,7 +12,7 @@ import {
 import paymentStyle from './style';
 import categoryStyle from '../Categories/style';
 import {IMAGES} from '../../utils/constants';
-import {CardDisplay, CardInput} from '../../common/creditDetails';
+import {CardDisplay, CardInput,CardScanner} from '../../common/creditDetails';
 
 const Payment = props => {
   const [cardNumber, setCardNumber] = useState('');
@@ -143,7 +143,9 @@ const Payment = props => {
         </View>
         <View style={{flex: 1}}>
           {isScannerOpen ? (
-            <CardScanner onSuccess={onSuccess} onError={onError} />
+            <CardScanner
+              setIsScannerOpen={setIsScannerOpen}
+            />
           ) : (
             <CardDisplay
               cardNumber={cardNumber}
