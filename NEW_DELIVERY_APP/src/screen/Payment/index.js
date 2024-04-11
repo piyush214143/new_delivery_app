@@ -4,7 +4,6 @@ import {
   Text,
   Animated,
   TouchableOpacity,
-  Easing,
   Image,
   ScrollView,
   Platform,
