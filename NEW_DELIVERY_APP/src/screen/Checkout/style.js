@@ -12,7 +12,7 @@ const checkoutStyle = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: ResponsiveSize(20),
-    paddingTop: ResponsiveSize(65),
+    paddingTop: ResponsiveSize(60),
     shadowColor: COLORS.black,
     shadowOffset: {
       width: 0,

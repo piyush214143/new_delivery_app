@@ -21,7 +21,9 @@ const Checkout = (props) => {
      <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
     <View style={checkoutStyle.container}>
       <View style={checkoutStyle.checkoutHeader}>
+        <TouchableOpacity  onPress={() => props.navigation.goBack('')}>
         <Image source={IMAGES.arrow} style={checkoutStyle.arrow} />
+        </TouchableOpacity>
         <Text style={checkoutStyle.checkoutText}>Checkout</Text>
         <Text></Text>
       </View>

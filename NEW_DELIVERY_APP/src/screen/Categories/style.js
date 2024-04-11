@@ -16,7 +16,8 @@ const categoryStyle = StyleSheet.create({
   headerContainer: {
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    height:ResponsiveSize(170)
+    height:ResponsiveSize(170),
+    paddingTop:ResponsiveSize(20)
   },
   header: {
     flexDirection: 'column',
