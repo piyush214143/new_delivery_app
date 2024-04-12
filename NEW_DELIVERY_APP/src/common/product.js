@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import cardStyle from '../screen/Card/style';
 import { COLORS, IMAGES } from '../utils/constants';
-import ResponsiveSize from '../utils/responsiveSize';
 
 const Product = ({ products, details }) => {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -50,7 +49,6 @@ const Product = ({ products, details }) => {
               onPress={() => handlePress(index)}
               style={[
                 cardStyle.iconSection,
-                // !isSelected ? cardStyle.selectedIcon : cardStyle.unselectedIcon,
                  {backgroundColor: !isSelected ? COLORS.button : COLORS.white},
               ]}>
               <Image

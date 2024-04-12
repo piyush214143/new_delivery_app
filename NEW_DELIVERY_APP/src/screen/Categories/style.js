@@ -16,7 +16,8 @@ const categoryStyle = StyleSheet.create({
   headerContainer: {
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    height:ResponsiveSize(170)
+    height:ResponsiveSize(170),
+    paddingTop:ResponsiveSize(20)
   },
   header: {
     flexDirection: 'column',
@@ -53,7 +54,7 @@ const categoryStyle = StyleSheet.create({
     marginTop: ResponsiveSize(10),
   }, 
   card: {
-    borderWidth: 1,
+    borderWidth: ResponsiveSize(1),
     borderColor: COLORS.border,
     borderRadius: ResponsiveSize(8),
     backgroundColor: COLORS.white,
@@ -66,6 +67,8 @@ const categoryStyle = StyleSheet.create({
     resizeMode: 'cover',
     width: '100%',
     height: '87%',
+    // borderTopStartRadius:ResponsiveSize(8),
+    // borderTopEndRadius:ResponsiveSize(8)
   },
   name: {
     fontSize: ResponsiveSize(18),

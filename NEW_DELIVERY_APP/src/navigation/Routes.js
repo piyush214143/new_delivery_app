@@ -3,19 +3,20 @@ import {Image, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
-import MainScreen from '../screen/mainScreen';
+import MainScreen from '../screen/MainScreen';
 import Categories from '../screen/Categories';
 import Checkout from '../screen/Checkout';
 import Profile from '../screen/Profile';
-import {IMAGES} from '../utils/constants';
+import {COLORS, IMAGES} from '../utils/constants';
 import Card from '../screen/Card';
 import ItemProduct from '../screen/Item';
 import Payment from '../screen/Payment';
+import ResponsiveSize from '../utils/responsiveSize';
 
 const CustomTabBarBadge = ({image}) => {
   return (
     <View>
-      <Image source={image} style={{width: 20, height: 20}} />
+      <Image source={image} style={{width: ResponsiveSize(20), height: ResponsiveSize(20)}} />
     </View>
   );
 };
@@ -54,7 +55,7 @@ export const TabNav = () => (
       options={{
         headerShown: false,
         tabBarBadge: <CustomTabBarBadge image={IMAGES.tabBarBadge} />,
-        tabBarBadgeStyle: {backgroundColor: 'white'},
+        tabBarBadgeStyle: {backgroundColor: COLORS.white},
       }}
       name="Checkout"
       component={Checkout}

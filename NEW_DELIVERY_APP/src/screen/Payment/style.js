@@ -62,6 +62,14 @@ const paymentStyle = StyleSheet.create({
     justifyContent: 'space-between',
     height: '100%',
     width: '100%',
+    // shadowColor: '#B894D7',
+    // shadowOffset: {
+    //   width: ResponsiveSize(6),
+    //   height: 6,
+    // },
+    // shadowOpacity: 0.60,
+    // shadowRadius: 3.84,
+    // elevation: 5,
   },
   basePart: {
     position: 'absolute',
@@ -94,17 +102,17 @@ const paymentStyle = StyleSheet.create({
   cardHolder: {
     color: COLORS.white,
     fontWeight: '500',
-    fontSize: ResponsiveSize(20),
+    fontSize:isTablet ? ResponsiveSize(25) : ResponsiveSize(20),
     letterSpacing: ResponsiveSize(0.48),
   },
   cardExpiry: {
     color: COLORS.white,
     fontWeight: '500',
-    fontSize: ResponsiveSize(20),
+    fontSize:isTablet ? ResponsiveSize(25) : ResponsiveSize(20),
   },
   cardValueFlipped: {
     color: COLORS.white,
-    fontSize: ResponsiveSize(20),
+    fontSize:ResponsiveSize(20),
     transform: [{scaleX: -1}],
     padding: ResponsiveSize(100),
     alignSelf: 'flex-start',
@@ -145,6 +153,7 @@ const paymentStyle = StyleSheet.create({
   },
   invalid: {
     color: 'red',
+    fontSize: ResponsiveSize(14),
   },
   btn1Container: {
     backgroundColor: COLORS.button,

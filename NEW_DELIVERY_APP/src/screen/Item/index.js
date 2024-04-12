@@ -26,13 +26,14 @@ const ItemProduct = props => {
       <View style={{height:'38%',width:'100%'}}>
       <SliderBox
         images={images}
-        sliderBoxHeight={'100%'}   
+        sliderBoxHeight={'100%'}
+        contentContainerStyle={width='100%'}
         dotColor="#ffffff"
         inactiveDotColor="#90A4AE"
         dotStyle={{
           width: ResponsiveSize(10),
           height: ResponsiveSize(10),
-          borderRadius: 10 / 2,
+          borderRadius: ResponsiveSize(10) / ResponsiveSize(2),
           marginBottom: ResponsiveSize(90),
         }}
       />     
@@ -49,7 +50,7 @@ const ItemProduct = props => {
       <View style={itemStyle.bottom}>
         <Text style={itemStyle.itemName}>Boston Lettuce</Text>
         <View style={{justifyContent:'space-between'}}>
-          <View style={{flexDirection:'row',alignItems:'center'}}>
+          <View style={{flexDirection:'row',alignItems:'center',marginBottom:'2%'}}>
           <Text style={itemStyle.productPrice}>
             1.10
           </Text>
