@@ -192,7 +192,7 @@ export const CardInput = ({
   );
 };
 
-export const CardScanner = ({setIsScannerOpen}) => {
+export const CardScanner = ({ setIsScannerOpen}) => {
   return (
     <View>
         <CardScanView
